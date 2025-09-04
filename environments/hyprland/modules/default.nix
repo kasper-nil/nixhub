@@ -9,14 +9,10 @@ in
 {
   options.desktop-environment.hyprland.enable = lib.mkEnableOption "Hyprland desktop environment suite";
 
-  imports = [
-    (lib.mkIf cfg.enable {
-      imports = [
-        ./catppuccin.nix
-        ./fonts.nix
-        ./programs.nix
-        ./services.nix
-      ];
-    })
+  imports = lib.optionals cfg.enable [
+    ./catppuccin.nix
+    ./fonts.nix
+    ./programs.nix
+    ./services.nix
   ];
 }

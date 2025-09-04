@@ -22,11 +22,7 @@
 
   outputs =
     {
-      self,
-      nixpkgs,
-      home-manager,
       catppuccin,
-      spicetify-nix,
       ...
     }:
     {
