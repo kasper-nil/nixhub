@@ -1,14 +1,9 @@
 {
-  lib,
-  config,
   catppuccin,
   ...
 }:
-let
-  cfg = config.desktop-environment.hyprland;
-in
 {
-  imports = lib.optionals cfg.enable [
+  imports = [
     catppuccin.nixosModules.catppuccin
     ./catppuccin.nix
     ./gtk.nix
