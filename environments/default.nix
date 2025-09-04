@@ -3,8 +3,6 @@ let
   c = config.desktop-environment; # namespace "desktop-environment" — change this to your preferred prefix
   enabledList = builtins.filter (x: x) [
     (c.hyprland.enable or false)
-    (c.plasma.enable or false)
-    (c.cosmic.enable or false)
   ];
 in
 {

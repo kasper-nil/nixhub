@@ -31,7 +31,7 @@
       # NixOS modules your hosts can import
       nixosModules = {
         default = import ./environments;
-        hyprland = import ./environments/hyprland;
+        hyprland = import ./environments/hyprland/modules;
       };
 
       # Optional: Home-Manager modules you can add via sharedModules
