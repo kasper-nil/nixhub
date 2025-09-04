@@ -27,18 +27,20 @@
       ...
     }:
     {
-      nixosModules.hyprland =
-        {
-          ...
-        }@args:
-        import (self + /environments/hyprland/modules/default.nix) (args // { inherit catppuccin; });
+      nixosModules = {
+        hyprland =
+          {
+            ...
+          }:
+          import (self + /environments/hyprland/modules/default.nix) { inherit catppuccin; };
 
+      };
       homeModules.hyprland =
         {
           ...
-        }@args:
-        import (self + /environments/hyprland/home-manager/default.nix) (
-          args // { inherit catppuccin spicetify-nix; }
-        );
+        }:
+        import (self + /environments/hyprland/home-manager/default.nix) {
+          inherit catppuccin spicetify-nix;
+        };
     };
 }
