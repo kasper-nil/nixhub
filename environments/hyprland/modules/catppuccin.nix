@@ -1,7 +1,7 @@
-{ inputs, ... }:
+{ inputs, catppuccin, ... }:
 {
   imports = [
-    inputs.catppuccin.nixosModules.catppuccin
+    catppuccin.nixosModules.catppuccin
   ];
 
   catppuccin = {

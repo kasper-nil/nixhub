@@ -25,17 +25,19 @@
       self,
       nixpkgs,
       home-manager,
+      catppuccin,
+      spicetify-nix,
       ...
     }:
     {
       # NixOS modules your hosts can import
       nixosModules = {
-        hyprland = import ./environments/hyprland/modules;
+        hyprland = import ./environments/hyprland/modules { inherit catppuccin; };
       };
 
       # Optional: Home-Manager modules you can add via sharedModules
       homeModules = {
-        hyprland = import ./environments/hyprland/home-manager;
+        hyprland = import ./environments/hyprland/home-manager { inherit catppuccin; };
       };
     };
 }
