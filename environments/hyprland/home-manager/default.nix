@@ -1,16 +1,6 @@
+{ ... }:
 {
-  lib,
-  config,
-  ...
-}:
-let
-  cfg = config.desktop-environment.hyprland or { enable = false; };
-in
-{
-  # HM runs in its own module tree, so declare the same option here too.
-  options.desktop-environment.hyprland.enable = lib.mkEnableOption "Hyprland (Home-Manager part)";
-
-  imports = lib.optionals cfg.enable [
+  imports = [
     ./catppuccin.nix
     ./gtk.nix
     ./home.nix

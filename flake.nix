@@ -19,21 +19,57 @@
       url = "github:Gerg-L/spicetify-nix";
     };
   };
-
   outputs =
     {
-      catppuccin,
+      self,
+      inputs,
       ...
     }:
     {
-      # NixOS modules your hosts can import
-      nixosModules = {
-        hyprland = import ./environments/hyprland/modules { inherit catppuccin; };
-      };
+      nixosModules.hyprland =
+        {
+          lib,
+          config,
+          ...
+        }:
+        let
+          cfg = config.desktop-environment.hyprland;
+        in
+        {
+          options.desktop-environment.hyprland.enable = lib.mkEnableOption "Hyprland DE suite";
 
-      # Optional: Home-Manager modules you can add via sharedModules
-      homeModules = {
-        hyprland = import ./environments/hyprland/home-manager { inherit catppuccin; };
-      };
+          # Only include fragments when enabled
+          imports = lib.optionals cfg.enable [
+            (self + /environments/hyprland/modules)
+            inputs.catppuccin.nixosModules.catppuccin
+          ];
+
+          config = lib.mkIf cfg.enable {
+            # system-side hyprland bits (if any)
+          };
+        };
+
+      homeModules.hyprland =
+        {
+          lib,
+          config,
+          ...
+        }:
+        let
+          cfg = (config.desktop-environment.hyprland or { enable = false; });
+        in
+        {
+          options.desktop-environment.hyprland.enable = lib.mkEnableOption "Hyprland (Home-Manager)";
+
+          imports = lib.optionals cfg.enable [
+            (self + /environments/hyprland/home-manager)
+            inputs.catppuccin.homeModules.catppuccin
+            inputs.spicetify-nix.homeManagerModules.spicetify
+          ];
+
+          config = lib.mkIf cfg.enable {
+            # HM user-side bits, if you want defaults here
+          };
+        };
     };
 }
