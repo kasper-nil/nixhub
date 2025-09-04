@@ -22,7 +22,8 @@
   outputs =
     {
       self,
-      inputs,
+      catppuccin,
+      spicetify-nix,
       ...
     }:
     {
@@ -41,7 +42,7 @@
           # Only include fragments when enabled
           imports = lib.optionals cfg.enable [
             (self + /environments/hyprland/modules)
-            inputs.catppuccin.nixosModules.catppuccin
+            catppuccin.nixosModules.catppuccin
           ];
 
           config = lib.mkIf cfg.enable {
@@ -63,8 +64,8 @@
 
           imports = lib.optionals cfg.enable [
             (self + /environments/hyprland/home-manager)
-            inputs.catppuccin.homeModules.catppuccin
-            inputs.spicetify-nix.homeManagerModules.spicetify
+            catppuccin.homeModules.catppuccin
+            spicetify-nix.homeManagerModules.spicetify
           ];
 
           config = lib.mkIf cfg.enable {
