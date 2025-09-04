@@ -34,7 +34,7 @@
           ...
         }:
         let
-          cfg = config.desktop-environment.hyprland;
+          cfg = config.desktop-environment.hyprland or { enable = false; };
         in
         {
           options.desktop-environment.hyprland.enable = lib.mkEnableOption "Hyprland DE suite";
@@ -44,10 +44,6 @@
             (self + /environments/hyprland/modules)
             catppuccin.nixosModules.catppuccin
           ];
-
-          config = lib.mkIf cfg.enable {
-            # system-side hyprland bits (if any)
-          };
         };
 
       homeModules.hyprland =
@@ -65,12 +61,8 @@
           imports = lib.optionals cfg.enable [
             (self + /environments/hyprland/home-manager)
             catppuccin.homeModules.catppuccin
-            spicetify-nix.homeManagerModules.spicetify
+            spicetify-nix.homeModules.spicetify
           ];
-
-          config = lib.mkIf cfg.enable {
-            # HM user-side bits, if you want defaults here
-          };
         };
     };
 }
