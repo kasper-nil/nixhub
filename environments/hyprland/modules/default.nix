@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  catppuccin,
   ...
 }:
 let
@@ -8,9 +9,10 @@ let
 in
 {
   imports = lib.optionals cfg.enable [
-    (./catppuccin.nix)
-    (./fonts.nix)
-    (./programs.nix)
-    (./services.nix)
+    catppuccin.nixosModules.catppuccin
+    ./catppuccin.nix
+    ./fonts.nix
+    ./programs.nix
+    ./services.nix
   ];
 }
