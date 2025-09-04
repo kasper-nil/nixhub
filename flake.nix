@@ -30,7 +30,6 @@
     {
       # NixOS modules your hosts can import
       nixosModules = {
-        default = import ./environments;
         hyprland = import ./environments/hyprland/modules;
       };
 
