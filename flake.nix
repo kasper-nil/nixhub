@@ -20,19 +20,30 @@
     };
   };
   outputs =
-    {
-      catppuccin,
-      spicetify-nix,
-      ...
-    }:
+    { catppuccin, spicetify-nix, ... }:
     {
       nixosModules = {
-        hyprland = import ./environments/hyprland/modules { inherit catppuccin; };
+        hyprland =
+          { ... }:
+          {
+            imports = [
+              catppuccin.nixosModules.catppuccin
+              (import ./environments/hyprland/modules) # no args
+            ];
+          };
       };
+
       homeModules = {
-        hyprland = import ./environments/hyprland/home-manager {
-          inherit catppuccin spicetify-nix;
-        };
+        hyprland =
+          { ... }:
+          {
+            imports = [
+              # Catppuccin renamed this to `homeModules` (compat layer warns if you use the old name).
+              catppuccin.homeModules.catppuccin
+              spicetify-nix.homeModules.spicetify
+              (import ./environments/hyprland/home-manager) # no args
+            ];
+          };
       };
     };
 }
