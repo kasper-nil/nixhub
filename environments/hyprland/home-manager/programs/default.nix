@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ ... }:
 {
   imports = [
     ./hyprlock.nix
