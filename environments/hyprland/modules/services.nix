@@ -1,10 +1,12 @@
 { pkgs, ... }:
 {
-  displayManager = {
-    enable = true;
-    sddm = {
+  services = {
+    displayManager = {
       enable = true;
-      package = pkgs.kdePackages.sddm;
+      sddm = {
+        enable = true;
+        package = pkgs.kdePackages.sddm;
+      };
     };
   };
 }
