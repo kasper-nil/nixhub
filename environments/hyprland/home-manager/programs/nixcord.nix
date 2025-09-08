@@ -1,7 +1,5 @@
-{ inputs, ... }:
+{ ... }:
 {
-  imports = [ inputs.nixcord.homeModules.nixcord ];
-
   programs.nixcord = {
     enable = true; # Enable Nixcord (It also installs Discord)
     vesktop.enable = true; # Vesktop

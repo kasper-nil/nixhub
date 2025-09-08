@@ -11,6 +11,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixcord = {
+      url = "github:kaylorben/nixcord";
+    };
+
     catppuccin = {
       url = "github:catppuccin/nix";
     };
@@ -20,7 +24,12 @@
     };
   };
   outputs =
-    { catppuccin, spicetify-nix, ... }:
+    {
+      catppuccin,
+      spicetify-nix,
+      nixcord,
+      ...
+    }:
     {
       nixosModules = {
         hyprland =
@@ -28,6 +37,7 @@
           {
             imports = [
               catppuccin.nixosModules.catppuccin
+              nixcord.nixosModules.nixcord
               (import ./environments/hyprland/modules) # no args
             ];
           };
