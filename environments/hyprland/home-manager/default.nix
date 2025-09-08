@@ -1,10 +1,6 @@
-{
-  catppuccin,
-  ...
-}:
+{ }:
 {
   imports = [
-    catppuccin.homeModules.catppuccin
     ./catppuccin.nix
     ./gtk.nix
     ./home.nix
