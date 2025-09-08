@@ -37,7 +37,6 @@
           {
             imports = [
               catppuccin.nixosModules.catppuccin
-              nixcord.nixosModules.nixcord
               (import ./environments/hyprland/modules) # no args
             ];
           };
@@ -51,6 +50,7 @@
               # Catppuccin renamed this to `homeModules` (compat layer warns if you use the old name).
               catppuccin.homeModules.catppuccin
               spicetify-nix.homeModules.spicetify
+              nixcord.homeModules.nixcord
               (import ./environments/hyprland/home-manager) # no args
             ];
           };
