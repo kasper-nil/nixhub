@@ -4,7 +4,7 @@
 }:
 {
   imports = [
-    catppuccin.nixosModules.catppuccin
+    catppuccin.homeModules.catppuccin
     ./catppuccin.nix
     ./gtk.nix
     ./home.nix
