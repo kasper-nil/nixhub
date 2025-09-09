@@ -11,16 +11,6 @@ in
         systemd.variables = [ "all" ];
 
         settings = {
-          # Improve this so that each host can specify its monitor
-          # "monitor" = [
-          #   # Main
-          #   "DP-8, 2560x1440@75, auto, 1"
-          #   # Vertical
-          #   "DP-7, 2560x1440@75, auto, 1, transform, 1"
-          #   # Laptop
-          #   "eDP-1, preferred, auto, 1"
-          # ];
-
           "monitor" = cfg.monitor;
 
           "$mod" = "SUPER";

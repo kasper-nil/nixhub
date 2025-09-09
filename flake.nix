@@ -24,7 +24,9 @@
     };
   };
   outputs =
+
     {
+      inputs,
       catppuccin,
       spicetify-nix,
       nixcord,
