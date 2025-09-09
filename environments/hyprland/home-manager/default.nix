@@ -1,6 +1,6 @@
-{ lib, ... }:
+{ lib, config, ... }:
 let
-  config = config.nixhub.hyprland;
+  cfg = config.nixhub.hyprland;
 in
 {
   imports = [
@@ -13,7 +13,7 @@ in
     ./programs
   ];
 
-  options.nixhub.hyprland = {
+  options.nixhub.hyprland.monitors = lib.mkOption {
     type = with lib.types; listOf str;
     default = [ ];
     description = "List of monitors to use. Refer to the hyprland wiki.";
@@ -23,7 +23,7 @@ in
     ];
   };
 
-  config = lib.mkIf (config.monitors != [ ]) {
-
+  config = lib.mkIf (cfg.monitors != [ ]) {
+    wayland.windowManager.hyprland.settings.monitor = cfg.monitors;
   };
 }
