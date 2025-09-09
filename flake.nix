@@ -24,7 +24,6 @@
     };
   };
   outputs =
-
     {
       catppuccin,
       spicetify-nix,
@@ -40,9 +39,6 @@
               catppuccin.nixosModules.catppuccin
               (import ./environments/hyprland/modules)
             ];
-            _module.args = {
-              inherit catppuccin;
-            };
           };
       };
 
@@ -50,15 +46,15 @@
         hyprland =
           { ... }:
           {
+            _module.args = {
+              inherit spicetify-nix;
+            };
             imports = [
               catppuccin.homeModules.catppuccin
               spicetify-nix.homeManagerModules.default
               nixcord.homeModules.nixcord
               (import ./environments/hyprland/home-manager)
             ];
-            _module.args = {
-              inherit spicetify-nix;
-            };
           };
       };
     };
