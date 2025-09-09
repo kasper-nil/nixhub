@@ -4,6 +4,8 @@
     hyprpaper = {
       enable = true;
       settings = {
+        ipc = "on";
+        splash = false;
         preload = [
           "/etc/nixos/assets/wallpaper.png"
         ];
@@ -12,6 +14,28 @@
           ", /etc/nixos/assets/wallpaper.png"
         ];
       };
+
+      Service = {
+        Restart = "always";
+        RestartSec = "2s";
+      };
+    };
+  };
+
+  hypridle = {
+    enable = true;
+    settings = {
+      general = {
+        lock_cmd = "pidof hyprlock || hyprlock";
+        after_sleep_cmd = "hyprctl dispatch dpms on; hyprctl hyprpaper reload ,\"/etc/nixos/assets/wallpaper.png\"";
+      };
+      listener = [
+        {
+          timeout = 600;
+          on-timeout = "hyprctl dispatch dpms off";
+          on-resume = "hyprctl dispatch dpms on; hyprctl hyprpaper reload ,\"/etc/nixos/assets/wallpaper.png\"";
+        }
+      ];
     };
   };
 }
