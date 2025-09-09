@@ -2,14 +2,14 @@
 {
   home = {
     packages = with pkgs; [
+      hyprsunset
+      hyprshot # or grimblast
+      hyprpicker # for color picking
       grim
       slurp
       wl-clipboard
       libnotify
-      hyprshot # or grimblast
-      hyprpicker # for color picking
       swappy
-      hyprsunset
 
       libsForQt5.qt5ct # palette/icon GUI for Qt5
       libsForQt5.qtstyleplugin-kvantum

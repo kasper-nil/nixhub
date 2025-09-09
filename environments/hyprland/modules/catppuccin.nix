@@ -1,5 +1,9 @@
-{ ... }:
+{ catppucin, ... }:
 {
+  imports = [
+    catppucin.nixosModules.default
+  ];
+
   catppuccin = {
     enable = true;
 
