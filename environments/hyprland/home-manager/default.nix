@@ -13,7 +13,7 @@ in
     ./programs
   ];
 
-  options.nixhub.hyprland.monitors = lib.mkOption {
+  options.nixhub.hyprland.monitor = lib.mkOption {
     type = with lib.types; listOf str;
     default = [ ];
     description = "List of monitors to use. Refer to the hyprland wiki.";
@@ -23,7 +23,7 @@ in
     ];
   };
 
-  config = lib.mkIf (cfg.monitors != [ ]) {
-    wayland.windowManager.hyprland.settings.monitor = cfg.monitors;
+  config = lib.mkIf (cfg.monitor != [ ]) {
+    wayland.windowManager.hyprland.settings.monitor = cfg.monitor;
   };
 }

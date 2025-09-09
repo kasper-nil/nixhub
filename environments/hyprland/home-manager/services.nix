@@ -16,6 +16,7 @@
       };
     };
 
+    # Fix for hyprpanel quitting after screen wake
     hypridle = {
       enable = true;
       settings = {
