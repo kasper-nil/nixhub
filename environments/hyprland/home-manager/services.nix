@@ -20,22 +20,22 @@
         RestartSec = "2s";
       };
     };
-  };
 
-  hypridle = {
-    enable = true;
-    settings = {
-      general = {
-        lock_cmd = "pidof hyprlock || hyprlock";
-        after_sleep_cmd = "hyprctl dispatch dpms on; hyprctl hyprpaper reload ,\"/etc/nixos/assets/wallpaper.png\"";
+    hypridle = {
+      enable = true;
+      settings = {
+        general = {
+          lock_cmd = "pidof hyprlock || hyprlock";
+          after_sleep_cmd = "hyprctl dispatch dpms on; hyprctl hyprpaper reload ,\"/etc/nixos/assets/wallpaper.png\"";
+        };
+        listener = [
+          {
+            timeout = 600;
+            on-timeout = "hyprctl dispatch dpms off";
+            on-resume = "hyprctl dispatch dpms on; hyprctl hyprpaper reload ,\"/etc/nixos/assets/wallpaper.png\"";
+          }
+        ];
       };
-      listener = [
-        {
-          timeout = 600;
-          on-timeout = "hyprctl dispatch dpms off";
-          on-resume = "hyprctl dispatch dpms on; hyprctl hyprpaper reload ,\"/etc/nixos/assets/wallpaper.png\"";
-        }
-      ];
     };
   };
 }
