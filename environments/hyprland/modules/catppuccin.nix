@@ -1,7 +1,7 @@
-{ catppucin, ... }:
+{ catppuccin, ... }:
 {
   imports = [
-    catppucin.nixosModules.default
+    catppuccin.nixosModules.catppuccin
   ];
 
   catppuccin = {
