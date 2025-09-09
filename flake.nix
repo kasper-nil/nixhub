@@ -47,15 +47,17 @@
         hyprland =
           { ... }:
           {
-            _module.args = {
-              inherit spicetify-nix;
-            };
             imports = [
               catppuccin.homeModules.catppuccin
               spicetify-nix.homeManagerModules.default
               nixcord.homeModules.nixcord
               (import ./environments/hyprland/home-manager)
             ];
+
+            _module.args = {
+              inherit spicetify-nix;
+              inherit catppuccin;
+            };
           };
       };
     };
