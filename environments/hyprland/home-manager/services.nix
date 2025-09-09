@@ -14,11 +14,6 @@
           ", /etc/nixos/assets/wallpaper.png"
         ];
       };
-
-      Service = {
-        Restart = "always";
-        RestartSec = "2s";
-      };
     };
 
     hypridle = {
