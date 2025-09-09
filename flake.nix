@@ -40,6 +40,9 @@
               catppuccin.nixosModules.catppuccin
               (import ./environments/hyprland/modules)
             ];
+            _module.args = {
+              inherit catppuccin;
+            };
           };
       };
 
@@ -53,10 +56,8 @@
               nixcord.homeModules.nixcord
               (import ./environments/hyprland/home-manager)
             ];
-
             _module.args = {
               inherit spicetify-nix;
-              inherit catppuccin;
             };
           };
       };
