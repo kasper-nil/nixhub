@@ -1,4 +1,7 @@
-{ ... }:
+{ config, ... }:
+let
+  cfg = config.nixhub.hyprland;
+in
 {
   wayland = {
     windowManager = {
@@ -18,7 +21,7 @@
           #   "eDP-1, preferred, auto, 1"
           # ];
 
-          "monitor" = "DP-2, 2560x1440@165, auto, 1";
+          "monitor" = cfg.monitor;
 
           "$mod" = "SUPER";
 

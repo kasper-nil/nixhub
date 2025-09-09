@@ -1,7 +1,4 @@
-{ lib, config, ... }:
-let
-  cfg = config.nixhub.hyprland;
-in
+{ lib, ... }:
 {
   imports = [
     ./catppuccin.nix
@@ -21,9 +18,5 @@ in
       "DP-2,2560x1440@165,0x0,1"
       "DP-3,2560x1440@165,2560x0,1"
     ];
-  };
-
-  config = lib.mkIf (cfg.monitor != [ ]) {
-    wayland.windowManager.hyprland.settings.monitor = cfg.monitor;
   };
 }
