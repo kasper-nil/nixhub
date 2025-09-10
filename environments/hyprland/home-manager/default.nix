@@ -19,4 +19,11 @@
       "DP-3,2560x1440@165,2560x0,1"
     ];
   };
+
+  options.nixhub.hyprland.workspace = lib.mkOption {
+    type = with lib.types; listOf str;
+    default = [ ];
+    description = "Workspace to use. Refer to the hyprland wiki.";
+    example = "[ workspace=1, monitor:DP-2 ]";
+  };
 }

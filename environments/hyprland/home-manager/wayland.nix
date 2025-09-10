@@ -11,14 +11,16 @@ in
         systemd.variables = [ "all" ];
 
         settings = {
-          "monitor" = cfg.monitor;
-
           "$mod" = "SUPER";
 
           "$terminal" = "alacritty";
           "$fileManager" = "thunar";
           "$menu" = "rofi -show drun";
           "$lock" = "hyprlock";
+
+          monitor = cfg.monitor;
+
+          workspace = cfg.workspace;
 
           exec-once = [
             "hyprpanel"
@@ -91,20 +93,6 @@ in
             ", XF86AudioPause, exec, playerctl play-pause"
             ", XF86AudioPlay, exec, playerctl play-pause"
             ", XF86AudioPrev, exec, playerctl previous"
-          ];
-
-          workspace = [
-            "11, monitor:eDP-1"
-            "10, monitor:DP-7"
-            "1, monitor:DP-8"
-            "2, monitor:DP-8"
-            "3, monitor:DP-8"
-            "4, monitor:DP-8"
-            "5, monitor:DP-8"
-            "6, monitor:DP-8"
-            "7, monitor:DP-8"
-            "8, monitor:DP-8"
-            "9, monitor:DP-8"
           ];
 
           general = {
