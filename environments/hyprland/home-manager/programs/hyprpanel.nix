@@ -28,7 +28,7 @@ in
     settings = {
       bar = {
         layouts =
-          if lib.lists.isEmpty cfg.monitor then
+          if builtins.length cfg.monitor == 0 then
             { "*" = baseLayout; }
           else
             lib.genAttrs cfg.monitor (_: baseLayout);
