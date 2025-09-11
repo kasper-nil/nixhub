@@ -35,7 +35,6 @@ in
         };
 
         workspaces = {
-          workspaces = 5;
           show_numbered = true;
         };
 
