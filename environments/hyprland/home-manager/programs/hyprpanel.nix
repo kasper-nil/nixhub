@@ -9,7 +9,7 @@
     settings = {
       bar = {
         layouts = {
-          "*" = {
+          "0" = {
             left = [
               "workspaces"
               "windowtitle"
