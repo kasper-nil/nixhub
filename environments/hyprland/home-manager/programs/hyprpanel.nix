@@ -1,6 +1,25 @@
-{
-  ...
-}:
+{ config, lib, ... }:
+let
+  cfg = config.nixhub.hyprland.hyprpanel;
+  baseLayout = {
+    left = [
+      "workspaces"
+      "windowtitle"
+    ];
+    middle = [ "clock" ];
+    right = [
+      "systray"
+      "microphone"
+      "volume"
+      "cpu"
+      "ram"
+      "hyprsunset"
+      "bluetooth"
+      "network"
+      "dashboard"
+    ];
+  };
+in
 {
   programs.hyprpanel = {
     enable = true;
@@ -8,26 +27,8 @@
     # See 'https://hyprpanel.com/configuration/settings.html'.
     settings = {
       bar = {
-        layouts = {
-          "0" = {
-            left = [
-              "workspaces"
-              "windowtitle"
-            ];
-            middle = [ "clock" ];
-            right = [
-              "systray"
-              "microphone"
-              "volume"
-              "cpu"
-              "ram"
-              "hyprsunset"
-              "bluetooth"
-              "network"
-              "dashboard"
-            ];
-          };
-        };
+        layouts =
+          if cfg.monitors == [ ] then { "*" = baseLayout; } else lib.genAttrs cfg.monitors (_: baseLayout);
 
         launcher = {
           autoDetectIcon = true;
