@@ -28,7 +28,7 @@ in
     settings = {
       bar = {
         layouts =
-          if cfg.monitors == [ ] then { "*" = baseLayout; } else lib.genAttrs cfg.monitors (_: baseLayout);
+          if cfg.monitor == [ ] then { "*" = baseLayout; } else lib.genAttrs cfg.monitor (_: baseLayout);
 
         launcher = {
           autoDetectIcon = true;
