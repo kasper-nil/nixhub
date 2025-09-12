@@ -19,6 +19,11 @@ let
       "dashboard"
     ];
   };
+  hideLayout = {
+    left = [ ];
+    middle = [ ];
+    right = [ ];
+  };
 in
 {
   programs.hyprpanel = {
@@ -27,15 +32,11 @@ in
     # See 'https://hyprpanel.com/configuration/settings.html'.
     settings = {
       bar = {
-        # layouts =
-        #   if builtins.length cfg.monitor == 0 then
-        #     { "*" = baseLayout; }
-        #   else
-        #     lib.genAttrs cfg.monitor (_: baseLayout);
-
-        layouts = {
-          "DP-2" = baseLayout;
-        };
+        layouts =
+          if builtins.length cfg.monitor == 0 then
+            { "*" = baseLayout; }
+          else
+            ({ "*" = hideLayout; } // lib.genAttrs cfg.monitor (_: baseLayout));
 
         launcher = {
           autoDetectIcon = true;
