@@ -27,11 +27,15 @@ in
     # See 'https://hyprpanel.com/configuration/settings.html'.
     settings = {
       bar = {
-        layouts =
-          if builtins.length cfg.monitor == 0 then
-            { "*" = baseLayout; }
-          else
-            lib.genAttrs cfg.monitor (_: baseLayout);
+        # layouts =
+        #   if builtins.length cfg.monitor == 0 then
+        #     { "*" = baseLayout; }
+        #   else
+        #     lib.genAttrs cfg.monitor (_: baseLayout);
+
+        layouts = {
+          "DP-2" = baseLayout;
+        };
 
         launcher = {
           autoDetectIcon = true;
