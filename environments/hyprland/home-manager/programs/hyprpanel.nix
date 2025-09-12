@@ -71,6 +71,7 @@ in
         workspaces = {
           count = 9;
           show_numbered = true;
+          show_icons = false;
         };
       };
 
