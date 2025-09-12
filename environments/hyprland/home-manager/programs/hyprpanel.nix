@@ -6,17 +6,21 @@ let
       "workspaces"
       "windowtitle"
     ];
-    middle = [ "clock" ];
+    middle = [ "media" ];
     right = [
       "systray"
-      "microphone"
-      "volume"
-      "cpu"
-      "ram"
       "hyprsunset"
       "bluetooth"
       "network"
+      "microphone"
+      "volume"
+      "cpu"
+      "cputemp"
+      "ram"
+      "netstat"
+      "storage"
       "dashboard"
+      "clock"
     ];
   };
   hideLayout = {
@@ -38,47 +42,41 @@ in
           else
             ({ "*" = hideLayout; } // lib.genAttrs cfg.monitor (_: baseLayout));
 
-        launcher = {
-          autoDetectIcon = true;
+        bluetooth.label = false;
+
+        clock.format = "%H:%M:%S";
+
+        customModules = {
+          hypridle = {
+            isActiveCommand = "systemctl --user status hypridle.service | grep -q 'Active: active (running)' && echo 'yes' || echo 'no'";
+            startCommand = "systemctl --user start hypridle.service";
+            stopCommand = "systemctl --user stop hypridle.service";
+          };
+
+          hyprsunset = {
+            label = false;
+            offIcon = "󰛨";
+            onIcon = "󱩌";
+            pollingInterval = 2000;
+            temperature = "3500k";
+          };
+
+          ram.labelType = "used/total";
         };
+
+        launcher.autoDetectIcon = true;
+
+        network.label = false;
 
         workspaces = {
           count = 9;
           show_numbered = true;
         };
-
-        clock = {
-          format = "%H:%M:%S";
-        };
-
-        bluetooth = {
-          label = false;
-        };
-
-        network = {
-          label = false;
-        };
-
-        customModules = {
-          ram = {
-            labelType = "used/total";
-          };
-          hyprsunset = {
-            label = false;
-            temperature = "3500k"; # colour when you click “On”
-            pollingInterval = 2000; # ms
-            onIcon = "󱩌";
-            offIcon = "󰛨";
-          };
-        };
       };
 
       menus = {
         clock = {
-          time = {
-            military = true;
-          };
-
+          time.military = true;
           weather.enabled = false;
         };
 
