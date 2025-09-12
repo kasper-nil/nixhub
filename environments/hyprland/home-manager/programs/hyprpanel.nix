@@ -19,8 +19,8 @@ let
       "storage"
       "bluetooth"
       "network"
-      "dashboard"
       "clock"
+      "dashboard"
     ];
   };
   hideLayout = {
