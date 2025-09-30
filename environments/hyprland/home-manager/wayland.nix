@@ -173,8 +173,8 @@ in
           };
 
           input = {
-            # kb_layout = "no";
-            # kb_variant = "nodeadkeys";
+            kb_layout = "no";
+            kb_variant = "nodeadkeys";
 
             follow_mouse = 1;
 
