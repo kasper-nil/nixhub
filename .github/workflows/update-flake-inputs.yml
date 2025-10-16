@@ -1,0 +1,33 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Update flake inputs
+
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  schedule:
+    - cron: '0 * * * *'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+      
+      - name: Set up Nix
+        uses: cachix/install-nix-action@31
+
+      - name: Update flake inputs
+        run: nix flake update
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "Github actions"
+          git config user.email "actions@github.com"
+          git add flake.lock
+          git commit -m "chore: update flake inputs" || exit 0
+          git push
