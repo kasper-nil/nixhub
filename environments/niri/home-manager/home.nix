@@ -8,6 +8,7 @@
       qt6Packages.qtstyleplugin-kvantum
       swaybg
       gcr
+      xwayland-satellite
     ];
 
     pointerCursor = {
