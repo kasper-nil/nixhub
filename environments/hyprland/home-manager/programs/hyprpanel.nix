@@ -40,7 +40,7 @@ in
           if builtins.length cfg.hyprpanel.monitor == 0 then
             { "*" = baseLayout; }
           else
-            ({ "*" = hideLayout; } // lib.genAttrs cfg.monitor (_: baseLayout));
+            ({ "*" = hideLayout; } // lib.genAttrs cfg.hyprpanel.monitor (_: baseLayout));
 
         bluetooth.label = false;
 
