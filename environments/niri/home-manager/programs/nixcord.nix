@@ -1,6 +1,13 @@
-{ ... }:
 {
-  programs.nixcord = {
+  config,
+  lib,
+  ...
+}:
+let
+  cfg = config.nixhub.hyprland;
+in
+{
+  programs.nixcord = lib.mkIf cfg.enable {
     enable = true; # Enable Nixcord (It also installs Discord)
     vesktop.enable = true; # Vesktop
     # dorion.enable = true; # Dorion

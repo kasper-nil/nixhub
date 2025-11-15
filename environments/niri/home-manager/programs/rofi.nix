@@ -1,6 +1,14 @@
-{ pkgs, config, ... }:
 {
-  programs.rofi = {
+  pkgs,
+  config,
+  lib,
+  ...
+}:
+let
+  cfg = config.nixhub.hyprland;
+in
+{
+  programs.rofi = lib.mkIf cfg.enable {
     enable = true;
 
     plugins = with pkgs; [ rofi-calc ];
