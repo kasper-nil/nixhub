@@ -7,8 +7,6 @@
   ];
 
   programs = {
-    niri.enable = true;
-
     # Default terminal
     alacritty.enable = true;
 
