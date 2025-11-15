@@ -128,7 +128,7 @@ output "DP-1" {
     // so to put another output directly adjacent to it on the right, set its x to 1920.
     // If the position is unset or results in an overlap, the output is instead placed
     // automatically.
-    position x=0 y=0
+    position x=2560 y=0
 }
 
 output "DP-1" {
@@ -141,7 +141,7 @@ output "DP-1" {
     mode "2560x1440@165"
 
     // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
-    transform "flipped-90"
+    transform "90"
 
     // Position of the output in the global coordinate space.
     // This affects directional monitor actions like "focus-monitor-left", and cursor movement.
@@ -152,7 +152,7 @@ output "DP-1" {
     // so to put another output directly adjacent to it on the right, set its x to 1920.
     // If the position is unset or results in an overlap, the output is instead placed
     // automatically.
-    position x=-1440 y=-480
+    position x=0 y=0
 }
 
 // Settings that influence how windows are positioned and sized.
