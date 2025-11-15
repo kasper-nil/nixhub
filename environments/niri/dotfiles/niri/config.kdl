@@ -214,6 +214,12 @@ window-rule {
     open-floating true
 }
 
+window-rule {
+  geometry-corner-radius 12
+  clip-to-geometry true
+}
+
+
 binds {
     // Mod-Shift-/, which is usually the same as Mod-?,
     // shows a list of important hotkeys.
