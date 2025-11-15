@@ -37,6 +37,7 @@
           {
             imports = [
               catppuccin.nixosModules.catppuccin
+              (import ./environments/hyprland/config/modules)
               (import ./environments/hyprland/modules)
             ];
           };
@@ -46,6 +47,7 @@
           {
             imports = [
               catppuccin.nixosModules.catppuccin
+              (import ./environments/niri/config/modules)
               (import ./environments/niri/modules)
             ];
           };
@@ -62,6 +64,7 @@
               catppuccin.homeModules.catppuccin
               spicetify-nix.homeManagerModules.default
               nixcord.homeModules.nixcord
+              (import ./environments/hyprland/config/home-manager)
               (import ./environments/hyprland/home-manager)
             ];
           };
@@ -76,6 +79,7 @@
               catppuccin.homeModules.catppuccin
               spicetify-nix.homeManagerModules.default
               nixcord.homeModules.nixcord
+              (import ./environments/niri/config/home-manager)
               (import ./environments/niri/home-manager)
             ];
           };

@@ -1,8 +1,6 @@
 { ... }:
 {
   imports = [
-    ../config/home-manager
-
     ./catppuccin.nix
     ./gtk.nix
     ./home.nix
