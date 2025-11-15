@@ -1,0 +1,8 @@
+{ ... }:
+{
+  programs = {
+    thunar = {
+      enable = true;
+    };
+  };
+}
