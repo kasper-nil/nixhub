@@ -3,7 +3,10 @@ let
   cfg = config.nixhub.niri;
 in
 {
-  imports = lib.optionals cfg.enabled [
+  imports = [
+    ../config/modules
+  ]
+  ++ lib.optionals cfg.enable [
     ./catppuccin.nix
     ./fonts.nix
     ./programs.nix

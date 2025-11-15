@@ -3,7 +3,10 @@ let
   cfg = config.nixhub.hyprland;
 in
 {
-  imports = lib.optionals cfg.enabled [
+  imports = [
+    ../config/home-manager
+  ]
+  ++ lib.optionals cfg.enable [
     ./catppuccin.nix
     ./gtk.nix
     ./home.nix

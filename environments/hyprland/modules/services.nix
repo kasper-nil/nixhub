@@ -1,4 +1,12 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
+let
+  cfg = config.nixhub.hyprland;
+in
 {
   services = {
     displayManager = {

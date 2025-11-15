@@ -3,7 +3,10 @@ let
   cfg = config.nixhub.niri;
 in
 {
-  imports = lib.optionals cfg.enabled [
+  imports = [
+    ../config/home-manager
+  ]
+  ++ lib.optionals cfg.enable [
     ./programs
     ./catppuccin.nix
     ./gtk.nix

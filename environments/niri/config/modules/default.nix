@@ -1,7 +1,7 @@
 { lib, ... }:
 {
   options.nixhub.niri = {
-    enabled = {
+    enable = {
       type = with lib.types; bool;
       default = false;
       description = "Enable niri desktop environment";
