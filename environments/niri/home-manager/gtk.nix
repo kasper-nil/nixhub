@@ -4,7 +4,7 @@
   ...
 }:
 let
-  cfg = config.nixhub.hyprland;
+  cfg = config.nixhub.niri;
 in
 {
   gtk = lib.mkIf cfg.enable {

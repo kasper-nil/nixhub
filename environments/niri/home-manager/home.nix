@@ -5,7 +5,7 @@
   ...
 }:
 let
-  cfg = config.nixhub.hyprland;
+  cfg = config.nixhub.niri;
 in
 {
   home = lib.mkIf cfg.enable {
