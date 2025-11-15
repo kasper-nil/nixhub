@@ -38,6 +38,7 @@
             imports = [
               catppuccin.nixosModules.catppuccin
               (import ./environments/hyprland/modules)
+              (import ./environments/hyprland/config/modules)
             ];
           };
 
@@ -62,6 +63,7 @@
               catppuccin.homeModules.catppuccin
               spicetify-nix.homeManagerModules.default
               nixcord.homeModules.nixcord
+              (import ./environments/hyprland/config/home-manager)
               (import ./environments/hyprland/home-manager)
             ];
           };
