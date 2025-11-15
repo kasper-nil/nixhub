@@ -1,10 +1,10 @@
 { lib, ... }:
 {
-  options.nixhub.hyprland = {
+  options.nixhub.niri = {
     enabled = {
       type = with lib.types; bool;
       default = false;
-      description = "Enable hyprland desktop environment";
+      description = "Enable niri desktop environment";
     };
   };
 }
