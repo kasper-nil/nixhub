@@ -2,7 +2,7 @@
 {
   options.nixhub.hyprland = {
     enable = {
-      type = with lib.types; bool;
+      type = lib.types.bool;
       default = false;
       description = "Enable hyprland desktop environment";
     };
