@@ -1,6 +1,14 @@
-{ pkgs, ... }:
 {
-  home = {
+  pkgs,
+  config,
+  lib,
+  ...
+}:
+let
+  cfg = config.nixhub.hyprland;
+in
+{
+  home = lib.mkIf cfg.enable {
     packages = with pkgs; [
       hyprsunset
       hyprshot # or grimblast

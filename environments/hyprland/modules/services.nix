@@ -8,7 +8,7 @@ let
   cfg = config.nixhub.hyprland;
 in
 {
-  services = {
+  services = lib.mkIf cfg.enable {
     displayManager = {
       enable = true;
       sddm = {

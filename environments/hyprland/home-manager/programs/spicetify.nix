@@ -1,10 +1,15 @@
 {
+  config,
   pkgs,
   spicetify-nix,
+  lib,
   ...
 }:
+let
+  cfg = config.nixhub.hyprland;
+in
 {
-  programs.spicetify = {
+  programs.spicetify = lib.mkIf cfg.enable {
     enable = true;
     theme = spicetify-nix.legacyPackages.${pkgs.stdenv.system}.themes.catppuccin;
     colorScheme = "mocha";

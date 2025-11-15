@@ -3,7 +3,7 @@ let
   cfg = config.nixhub.hyprland;
 in
 {
-  programs = {
+  programs = lib.mkIf cfg.enable {
     hyprland = {
       enable = true;
     };

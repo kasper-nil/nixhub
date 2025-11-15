@@ -1,6 +1,9 @@
-{ ... }:
+{ config, lib, ... }:
+let
+  cfg = config.nixhub.hyprland;
+in
 {
-  gtk = {
+  gtk = lib.mkIf cfg.enable {
     enable = true;
   };
 }

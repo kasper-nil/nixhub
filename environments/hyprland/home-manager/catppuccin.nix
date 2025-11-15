@@ -1,6 +1,9 @@
-{ ... }:
+{ config, lib, ... }:
+let
+  cfg = config.nixhub.hyprland;
+in
 {
-  catppuccin = {
+  catppuccin = lib.mkIf cfg.enable {
     enable = true;
 
     flavor = "mocha";

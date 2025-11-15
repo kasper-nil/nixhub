@@ -1,6 +1,14 @@
-{ pkgs, ... }:
 {
-  home = {
+  pkgs,
+  config,
+  lib,
+  ...
+}:
+let
+  cfg = config.nixhub.hyprland;
+in
+{
+  home = lib.mkIf cfg.enable {
     packages = with pkgs; [
       libsForQt5.qt5ct # palette/icon GUI for Qt5
       libsForQt5.qtstyleplugin-kvantum

@@ -1,6 +1,6 @@
 { config, lib, ... }:
 let
-  cfg = config.nixhub.hyprland.hyprpanel;
+  cfg = config.nixhub.hyprland;
   baseLayout = {
     left = [
       "workspaces"
@@ -30,14 +30,14 @@ let
   };
 in
 {
-  programs.hyprpanel = {
+  programs.hyprpanel = lib.mkIf cfg.enable {
     enable = true;
 
     # See 'https://hyprpanel.com/configuration/settings.html'.
     settings = {
       bar = {
         layouts =
-          if builtins.length cfg.monitor == 0 then
+          if builtins.length cfg.hyprpanel.monitor == 0 then
             { "*" = baseLayout; }
           else
             ({ "*" = hideLayout; } // lib.genAttrs cfg.monitor (_: baseLayout));

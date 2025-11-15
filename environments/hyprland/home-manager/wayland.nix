@@ -1,9 +1,9 @@
-{ config, ... }:
+{ config, lib, ... }:
 let
   cfg = config.nixhub.hyprland;
 in
 {
-  wayland = {
+  wayland = lib.mkIf cfg.enable {
     windowManager = {
       hyprland = {
         enable = true;
