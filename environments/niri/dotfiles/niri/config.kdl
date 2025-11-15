@@ -7,7 +7,9 @@
 // Find the full list of options on the wiki:
 // https://yalter.github.io/niri/Configuration:-Input
 input {
-    focus-follows-mouse
+    focus-follows-mouse {
+        max-scroll-amount "0%"
+    }
 
     keyboard {
         xkb {
@@ -110,50 +112,16 @@ input {
 }
 
 output "DP-1" {
-    // Resolution and, optionally, refresh rate of the output.
-    // The format is "<width>x<height>" or "<width>x<height>@<refresh rate>".
-    // If the refresh rate is omitted, niri will pick the highest refresh rate
-    // for the resolution.
-    // If the mode is omitted altogether or is invalid, niri will pick one automatically.
-    // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
     mode "2560x1440@165.080"
 
-    // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
     transform "normal"
 
-    // Position of the output in the global coordinate space.
-    // This affects directional monitor actions like "focus-monitor-left", and cursor movement.
-    // The cursor can only move between directly adjacent outputs.
-    // Output scale and rotation has to be taken into account for positioning:
-    // outputs are sized in logical, or scaled, pixels.
-    // For example, a 3840×2160 output with scale 2.0 will have a logical size of 1920×1080,
-    // so to put another output directly adjacent to it on the right, set its x to 1920.
-    // If the position is unset or results in an overlap, the output is instead placed
-    // automatically.
     position x=0 y=0
 }
 
 output "DP-2" {
-    // Resolution and, optionally, refresh rate of the output.
-    // The format is "<width>x<height>" or "<width>x<height>@<refresh rate>".
-    // If the refresh rate is omitted, niri will pick the highest refresh rate
-    // for the resolution.
-    // If the mode is omitted altogether or is invalid, niri will pick one automatically.
-    // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
     mode "2560x1440@165.001"
-
-    // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
     transform "90"
-
-    // Position of the output in the global coordinate space.
-    // This affects directional monitor actions like "focus-monitor-left", and cursor movement.
-    // The cursor can only move between directly adjacent outputs.
-    // Output scale and rotation has to be taken into account for positioning:
-    // outputs are sized in logical, or scaled, pixels.
-    // For example, a 3840×2160 output with scale 2.0 will have a logical size of 1920×1080,
-    // so to put another output directly adjacent to it on the right, set its x to 1920.
-    // If the position is unset or results in an overlap, the output is instead placed
-    // automatically.
     position x=-1440 y=-480
 }
 
@@ -530,8 +498,8 @@ binds {
     // To avoid scrolling through workspaces really fast, you can use
     // the cooldown-ms property. The bind will be rate-limited to this value.
     // You can set a cooldown on any bind, but it's most useful for the wheel.
-    Mod+WheelScrollDown      cooldown-ms=150 { focus-column-right; }
-    Mod+WheelScrollUp        cooldown-ms=150 { focus-column-left; }
+    Mod+WheelScrollDown      cooldown-ms=50 { focus-column-right; }
+    Mod+WheelScrollUp        cooldown-ms=50 { focus-column-left; }
     Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
     Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
 
