@@ -171,8 +171,6 @@ layout {
     focus-ring {
         width 2
 
-        corner-radius 8
-
         // Color of the ring on the active monitor.
         active-color "#a072e9ff"
 
