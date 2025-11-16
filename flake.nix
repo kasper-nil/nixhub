@@ -25,6 +25,8 @@
   };
   outputs =
     {
+      self,
+      nixpkgs,
       catppuccin,
       spicetify-nix,
       nixcord,
@@ -84,5 +86,58 @@
             ];
           };
       };
+      checks.x86_64-linux =
+        let
+          system = "x86_64-linux";
+          lib = nixpkgs.lib;
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        {
+          # Validate NixOS hyprland module (use the toplevel derivation)
+          hyprlandModule =
+            (lib.nixosSystem {
+              inherit system;
+              modules = [
+                self.nixosModules.hyprland
+                { users.users.test.isNormalUser = true; }
+              ];
+            }).config.system.build.toplevel;
+
+          # Validate NixOS niri module
+          niriModule =
+            (lib.nixosSystem {
+              inherit system;
+              modules = [
+                self.nixosModules.niri
+                { users.users.test.isNormalUser = true; }
+              ];
+            }).config.system.build.toplevel;
+
+          # Validate Home-Manager hyprland module (use the activation derivation)
+          hyprlandHome =
+            (lib.homeManagerConfiguration {
+              pkgs = pkgs;
+              modules = [
+                self.homeModules.hyprland
+                {
+                  home.username = "test";
+                  home.homeDirectory = "/home/test";
+                }
+              ];
+            }).activationPackage;
+
+          # Validate Home-Manager niri module
+          niriHome =
+            (lib.homeManagerConfiguration {
+              pkgs = pkgs;
+              modules = [
+                self.homeModules.niri
+                {
+                  home.username = "test";
+                  home.homeDirectory = "/home/test";
+                }
+              ];
+            }).activationPackage;
+        };
     };
 }
