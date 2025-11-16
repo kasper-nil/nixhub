@@ -1,7 +1,6 @@
 {
   catppuccin,
   nixcord,
-  spicetify-nix,
   ...
 }:
 {
@@ -21,14 +20,11 @@
       ../config/home-manager
       ../home-manager
 
-      # Specific arguments or common modules if needed
       catppuccin.homeModules.catppuccin
-      # spicetify-nix.homeManagerModules.default
       nixcord.homeModules.nixcord
     ];
 
     moduleArgs = {
-      # inherit spicetify-nix;
     };
   };
 }
