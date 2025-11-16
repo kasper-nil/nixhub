@@ -62,7 +62,7 @@
             };
             imports = [
               catppuccin.homeModules.catppuccin
-              spicetify-nix.homeManagerModules.default
+              # spicetify-nix.homeManagerModules.default
               nixcord.homeModules.nixcord
               (import ./environments/hyprland/config/home-manager)
               (import ./environments/hyprland/home-manager)

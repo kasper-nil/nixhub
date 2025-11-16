@@ -5,7 +5,7 @@
     ./hyprpanel.nix
     ./nixcord.nix
     ./rofi.nix
-    ./spicetify.nix
+    # ./spicetify.nix
   ];
 
   disabledModules = [ "./hyprpanel.nix" ];
