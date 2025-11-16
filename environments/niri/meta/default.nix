@@ -18,7 +18,7 @@
 
   homeModules = {
     imports = [
-      ../config/home-manager
+      ../config/home-manager.nix
       ../home-manager
 
       catppuccin.homeModules.catppuccin
