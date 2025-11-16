@@ -69,7 +69,7 @@
           imports = [
             inputs.catppuccin.homeModules.catppuccin
             inputs.nixcord.homeModules.nixcord
-            inputs.spicetify-nix.homeManagerModules.default
+            inputs.spicetify-nix.homeManagerModules.spicetify
           ]
           ++ nixhubModules.homeModules;
         };
