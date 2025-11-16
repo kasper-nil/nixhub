@@ -18,19 +18,17 @@
     catppuccin = {
       url = "github:catppuccin/nix";
     };
-
-    spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix";
-    };
   };
   outputs =
-    { ... }@inputs:
+    { nixpkgs, ... }@inputs:
     let
       # Define all environment metadata files
       environmentMeta = {
         hyprland = (import ./environments/hyprland/meta inputs);
         niri = (import ./environments/niri/meta inputs);
       };
+
+      testModule = import ./lib/testModule.nix;
 
       # Function to create NixOS modules dynamically from environmentMeta
       mkNixosModule =
@@ -52,61 +50,62 @@
       # Generate the nixosModules and homeModules attribute sets by iterating over environmentMeta
       nixosModules = builtins.mapAttrs mkNixosModule environmentMeta;
       homeModules = builtins.mapAttrs mkHomeModule environmentMeta;
+
+      # Helper function for creating test derivations
+      mkNixosModuleTest =
+        {
+          lib,
+          system,
+          module,
+        }:
+        (lib.nixosSystem {
+          inherit system;
+          modules = [
+            testModule.nixosTestModule
+            module
+          ];
+        }).config.system.build.toplevel;
+
+      mkHomeModuleTest =
+        {
+          lib,
+          pkgs,
+          module,
+        }:
+        (lib.homeManagerConfiguration {
+          pkgs = pkgs;
+          modules = [
+            testModule.homeManagerTestModule # Import the standardized test module here
+            module
+          ];
+        }).activationPackage;
     in
     {
       inherit nixosModules homeModules;
-      # checks.x86_64-linux =
-      #   let
-      #     system = "x86_64-linux";
-      #     lib = nixpkgs.lib;
-      #     pkgs = nixpkgs.legacyPackages.${system};
-      #   in
-      #   {
-      #     # Validate NixOS hyprland module (use the toplevel derivation)
-      #     hyprlandModule =
-      #       (lib.nixosSystem {
-      #         inherit system;
-      #         modules = [
-      #           self.nixosModules.hyprland
-      #           { users.users.test.isNormalUser = true; }
-      #         ];
-      #       }).config.system.build.toplevel;
 
-      #     # Validate NixOS niri module
-      #     niriModule =
-      #       (lib.nixosSystem {
-      #         inherit system;
-      #         modules = [
-      #           self.nixosModules.niri
-      #           { users.users.test.isNormalUser = true; }
-      #         ];
-      #       }).config.system.build.toplevel;
-
-      #     # Validate Home-Manager hyprland module (use the activation derivation)
-      #     hyprlandHome =
-      #       (lib.homeManagerConfiguration {
-      #         pkgs = pkgs;
-      #         modules = [
-      #           self.homeModules.hyprland
-      #           {
-      #             home.username = "test";
-      #             home.homeDirectory = "/home/test";
-      #           }
-      #         ];
-      #       }).activationPackage;
-
-      #     # Validate Home-Manager niri module
-      #     niriHome =
-      #       (lib.homeManagerConfiguration {
-      #         pkgs = pkgs;
-      #         modules = [
-      #           self.homeModules.niri
-      #           {
-      #             home.username = "test";
-      #             home.homeDirectory = "/home/test";
-      #           }
-      #         ];
-      #       }).activationPackage;
-      #   };
+      checks.x86_64-linux =
+        let
+          system = "x86_64-linux";
+          lib = nixpkgs.lib;
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        builtins.listToAttrs (
+          builtins.map (envName: {
+            name = "${envName}-nixos-module";
+            value = mkNixosModuleTest {
+              inherit lib system;
+              module = nixosModules.${envName};
+            };
+          }) (builtins.attrNames environmentMeta)
+        )
+        // builtins.listToAttrs (
+          builtins.map (envName: {
+            name = "${envName}-home-module";
+            value = mkHomeModuleTest {
+              inherit lib pkgs;
+              module = homeModules.${envName};
+            };
+          }) (builtins.attrNames environmentMeta)
+        );
     };
 }
