@@ -34,7 +34,9 @@
         { lib, system }:
         (lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit inputs; };
+          specialArgs = {
+            nixhubInputs = inputs;
+          };
           modules = [
             testModules.nixosModule
             self.nixosModules.default
@@ -46,7 +48,9 @@
         { pkgs, homeLib }:
         (homeLib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs = { inherit inputs; };
+          extraSpecialArgs = {
+            nixhubInputs = inputs;
+          };
           modules = [
             testModules.homeModule
             self.homeModules.default
@@ -58,7 +62,7 @@
         { ... }:
         {
           _module.args = {
-            inputs = inputs;
+            nixhubInputs = inputs;
           };
 
           imports = [
@@ -71,7 +75,7 @@
         { ... }:
         {
           _module.args = {
-            inputs = inputs;
+            nixhubInputs = inputs;
           };
 
           imports = [

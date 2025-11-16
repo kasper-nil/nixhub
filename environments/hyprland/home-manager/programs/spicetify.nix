@@ -1,5 +1,5 @@
 {
-  inputs,
+  nixhubInputs,
   config,
   pkgs,
   lib,
@@ -7,7 +7,7 @@
 }:
 let
   cfg = config.nixhub.hyprland;
-  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
+  spicePkgs = nixhubInputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
 in
 {
   programs.spicetify = lib.mkIf cfg.enable {
