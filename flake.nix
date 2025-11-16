@@ -24,24 +24,12 @@
     };
   };
   outputs =
-    {
-      self,
-      nixpkgs,
-      home-manager, # Still needed if Home Manager configurations are elsewhere and require `home-manager.lib`
-      catppuccin,
-      spicetify-nix,
-      nixcord,
-      ...
-    }@inputs: # Capture all inputs into `inputs` for passing to meta files
+    { ... }@inputs:
     let
       # Define all environment metadata files
-      # Each meta file is a function that expects relevant inputs.
-      # We call it here, passing all available inputs from the flake.
       environmentMeta = {
-        hyprland = (import ./environments/meta/hyprland.nix inputs);
-        niri = (import ./environments/meta/niri.nix inputs);
-        # Add more environments here as you create their meta files
-        # plasma = (import ./environments/meta/plasma.nix inputs);
+        hyprland = (import ./environments/hyprland/meta inputs);
+        niri = (import ./environments/niri/meta inputs);
       };
 
       # Function to create NixOS modules dynamically from environmentMeta
@@ -61,8 +49,7 @@
           imports = envMeta.homeManagerModules;
         };
 
-      # Generate the nixosModules and homeModules attribute sets
-      # by iterating over environmentMeta
+      # Generate the nixosModules and homeModules attribute sets by iterating over environmentMeta
       nixosModules = builtins.mapAttrs mkNixOSModule environmentMeta;
       homeModules = builtins.mapAttrs mkHomeManagerModule environmentMeta;
     in
