@@ -7,7 +7,7 @@
 {
   description = "Niri desktop environment configuration.";
 
-  nixos = {
+  nixosModules = {
     imports = [
       ../config/modules
       ../modules
@@ -16,7 +16,7 @@
     ];
   };
 
-  homeManager = {
+  homeModules = {
     imports = [
       ../config/home-manager
       ../home-manager
@@ -29,10 +29,7 @@
   };
 
   # Arguments to pass specifically to Hyprland's Home Manager module
-  homeManagerModuleArgs = {
+  homeModuleArgs = {
     # inherit spicetify-nix;
   };
-
-  # Any other metadata or specific configs for hyprland
-  extraHomeManagerModules = [ ]; # spicetify-nix for example
 }

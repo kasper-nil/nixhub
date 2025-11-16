@@ -33,7 +33,7 @@
       };
 
       # Function to create NixOS modules dynamically from environmentMeta
-      mkNixOSModule =
+      mkNixosModule =
         envName: envMeta:
         { ... }:
         {
@@ -41,17 +41,17 @@
         };
 
       # Function to create Home Manager modules dynamically from environmentMeta
-      mkHomeManagerModule =
+      mkHomeModule =
         envName: envMeta:
         { ... }:
         {
-          _module.args = envMeta.homeManagerModuleArgs; # Use specific args from meta file
-          imports = envMeta.homeManagerModules;
+          _module.args = envMeta.homeModuleArgs; # Use specific args from meta file
+          imports = envMeta.homeModules;
         };
 
       # Generate the nixosModules and homeModules attribute sets by iterating over environmentMeta
-      nixosModules = builtins.mapAttrs mkNixOSModule environmentMeta;
-      homeModules = builtins.mapAttrs mkHomeManagerModule environmentMeta;
+      nixosModules = builtins.mapAttrs mkNixosModule environmentMeta;
+      homeModules = builtins.mapAttrs mkHomeModule environmentMeta;
     in
     {
       inherit nixosModules homeModules;
