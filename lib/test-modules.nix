@@ -1,5 +1,5 @@
 {
-  nixosTestModule =
+  nixosModule =
     { ... }:
     {
       # Essential settings to make a NixOS system buildable for tests
@@ -27,7 +27,7 @@
       };
     };
 
-  homeTestModule =
+  homeModule =
     { ... }:
     {
       # Essential settings for a Home Manager configuration

@@ -18,9 +18,13 @@
     catppuccin = {
       url = "github:catppuccin/nix";
     };
+
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+    };
   };
   outputs =
-    { nixpkgs, ... }@inputs:
+    { nixpkgs, home-manager, ... }@inputs:
     let
       # Define all environment metadata files
       environmentMeta = {
@@ -28,7 +32,7 @@
         niri = (import ./environments/niri/meta inputs);
       };
 
-      testModule = import ./lib/testModule.nix;
+      testModules = import ./lib/test-modules.nix;
 
       # Function to create NixOS modules dynamically from environmentMeta
       mkNixosModule =
@@ -43,7 +47,7 @@
         envName: envMeta:
         { ... }:
         {
-          _module.args = envMeta.homeModules.moduleArgs; # Use specific args from meta file
+          _module.args = envMeta.homeModules._module.args; # Use specific args from meta file
           imports = envMeta.homeModules.imports;
         };
 
@@ -61,21 +65,20 @@
         (lib.nixosSystem {
           inherit system;
           modules = [
-            testModule.nixosTestModule
+            testModules.nixosModule
             module
           ];
         }).config.system.build.toplevel;
 
       mkHomeModuleTest =
         {
-          lib,
           pkgs,
           module,
         }:
-        (lib.homeManagerConfiguration {
+        (home-manager.lib.homeManagerConfiguration {
           pkgs = pkgs;
           modules = [
-            testModule.homeManagerTestModule # Import the standardized test module here
+            testModules.homeModule
             module
           ];
         }).activationPackage;
@@ -89,6 +92,7 @@
           lib = nixpkgs.lib;
           pkgs = nixpkgs.legacyPackages.${system};
         in
+        # Nixos module test
         builtins.listToAttrs (
           builtins.map (envName: {
             name = "${envName}-nixos-module";
@@ -98,11 +102,12 @@
             };
           }) (builtins.attrNames environmentMeta)
         )
+        # Home module test
         // builtins.listToAttrs (
           builtins.map (envName: {
             name = "${envName}-home-module";
             value = mkHomeModuleTest {
-              inherit lib pkgs;
+              inherit pkgs;
               module = homeModules.${envName};
             };
           }) (builtins.attrNames environmentMeta)

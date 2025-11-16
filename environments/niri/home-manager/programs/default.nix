@@ -3,7 +3,6 @@
   imports = [
     ./nixcord.nix
     ./rofi.nix
-    ./spicetify.nix
   ];
 
   programs = {

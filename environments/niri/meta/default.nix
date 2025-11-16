@@ -1,6 +1,7 @@
 {
   catppuccin,
   nixcord,
+  spicetify-nix,
   ...
 }:
 {
@@ -24,7 +25,8 @@
       nixcord.homeModules.nixcord
     ];
 
-    moduleArgs = {
+    _module.args = {
+      inherit spicetify-nix;
     };
   };
 }
