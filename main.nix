@@ -1,35 +1,40 @@
-{ inputs, ... }:
 let
-  # List of all environment names to manage
-  environmentNames = [
+  # List of available desktop environments
+  environments = [
     "hyprland"
-    # "niri"
+    "niri"
+    # "plasma"
   ];
 
-  allConfigModules = builtins.concatLists (
-    builtins.map (envName: [
-      (import ./environments/${envName}/config { inherit inputs; })
-    ]) environmentNames
-  );
+  # Generate module lists for each environment
+  mkEnvironmentModules = envName: {
+    nixos = {
+      options = ./environments/${envName}/config/modules.nix;
+      implementation = ./environments/${envName}/modules;
+    };
+    home = {
+      options = ./environments/${envName}/config/home-manager.nix;
+      implementation = ./environments/${envName}/home-manager;
+    };
+  };
 
-  allImplementationModules = builtins.concatLists (
-    builtins.map (envName: [
-      (import ./environments/${envName}/modules { inherit inputs; })
-      (import ./environments/${envName}/home-manager { inherit inputs; })
-    ]) environmentNames
-  );
+  # Collect all modules
+  allEnvironments = builtins.map mkEnvironmentModules environments;
 in
 {
-  # Import all modules that define options (e.g., nixhub.hyprland.enable)
-  imports = allConfigModules ++ allImplementationModules;
+  # All NixOS modules (options + implementations)
+  nixosModules = builtins.concatLists (
+    builtins.map (env: [
+      env.nixos.options
+      env.nixos.implementation
+    ]) allEnvironments
+  );
 
-  # # This makes 'inputs' (or specific inputs) available to all NixOS sub-modules
-  # _module.args = {
-  #   inherit inputs;
-  # };
-
-  # # Pass all flake inputs to Home Manager modules if needed
-  # home.extraSpecialArgs = {
-  #   inherit inputs;
-  # };
+  # All Home Manager modules (options + implementations)
+  homeModules = builtins.concatLists (
+    builtins.map (env: [
+      env.home.options
+      env.home.implementation
+    ]) allEnvironments
+  );
 }

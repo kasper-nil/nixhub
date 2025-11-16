@@ -1,7 +1,7 @@
 {
+  inputs,
   config,
   pkgs,
-  spicetify-nix,
   lib,
   ...
 }:
@@ -11,7 +11,7 @@ in
 {
   programs.spicetify = lib.mkIf cfg.enable {
     enable = true;
-    theme = spicetify-nix.legacyPackages.${pkgs.stdenv.system}.themes.catppuccin;
+    theme = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system}.themes.catppuccin;
     colorScheme = "mocha";
   };
 }

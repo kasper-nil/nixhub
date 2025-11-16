@@ -2,6 +2,15 @@
   nixosModule =
     { ... }:
     {
+      nixhub = {
+        hyprland.enable = true;
+        niri.enable = false;
+      };
+
+      nixpkgs.config.allowUnfree = true;
+
+      services.displayManager.sddm.wayland.enable = true;
+
       # Essential settings to make a NixOS system buildable for tests
       # without actually trying to boot it.
       boot.loader.systemd-boot.enable = false;
@@ -30,6 +39,13 @@
   homeModule =
     { ... }:
     {
+      nixhub = {
+        hyprland.enable = true;
+        niri.enable = false;
+      };
+
+      nixpkgs.config.allowUnfree = true;
+
       # Essential settings for a Home Manager configuration
       home.username = "testuser";
       home.homeDirectory = "/home/testuser";

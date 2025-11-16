@@ -15,7 +15,6 @@ in
 
     grub = {
       enable = true;
-      flavor = "mocha";
     };
   };
 }
