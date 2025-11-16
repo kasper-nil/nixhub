@@ -57,6 +57,10 @@
       nixosModules.default =
         { ... }:
         {
+          _module.args = {
+            inputs = inputs;
+          };
+
           imports = [
             inputs.catppuccin.nixosModules.catppuccin
           ]
@@ -66,6 +70,10 @@
       homeModules.default =
         { ... }:
         {
+          _module.args = {
+            inputs = inputs;
+          };
+
           imports = [
             inputs.catppuccin.homeModules.catppuccin
             inputs.nixcord.homeModules.nixcord
