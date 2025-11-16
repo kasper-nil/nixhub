@@ -23,13 +23,12 @@
 
       # Specific arguments or common modules if needed
       catppuccin.homeModules.catppuccin
-      # spicetify-nix.homeManagerModules.default # Still commented out as per your original
+      # spicetify-nix.homeManagerModules.default
       nixcord.homeModules.nixcord
     ];
-  };
 
-  # Arguments to pass specifically to Hyprland's Home Manager module
-  homeModuleArgs = {
-    # inherit spicetify-nix;
+    moduleArgs = {
+      # inherit spicetify-nix;
+    };
   };
 }

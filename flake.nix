@@ -37,7 +37,7 @@
         envName: envMeta:
         { ... }:
         {
-          imports = envMeta.nixosModules;
+          imports = envMeta.nixosModules.imports;
         };
 
       # Function to create Home Manager modules dynamically from environmentMeta
@@ -45,8 +45,8 @@
         envName: envMeta:
         { ... }:
         {
-          _module.args = envMeta.homeModuleArgs; # Use specific args from meta file
-          imports = envMeta.homeModules;
+          _module.args = envMeta.homeModules.moduleArgs; # Use specific args from meta file
+          imports = envMeta.homeModules.imports;
         };
 
       # Generate the nixosModules and homeModules attribute sets by iterating over environmentMeta
