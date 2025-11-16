@@ -23,6 +23,7 @@
 
       catppuccin.homeModules.catppuccin
       nixcord.homeModules.nixcord
+      spicetify-nix.homeManagerModules.default
     ];
 
     _module.args = {
