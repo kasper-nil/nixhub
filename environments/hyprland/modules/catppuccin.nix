@@ -13,9 +13,9 @@ in
       assertQt6Sddm = true;
     };
 
-    # grub = {
-    #   enable = true;
-    #   flavor = "mocha";
-    # };
+    grub = {
+      enable = true;
+      flavor = "mocha";
+    };
   };
 }

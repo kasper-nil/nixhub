@@ -55,13 +55,13 @@ in
       flavor = "mocha";
     };
 
-    # gtk = {
-    #   icon = {
-    #     enable = true;
-    #     accent = "lavender";
-    #     flavor = "mocha";
-    #   };
-    # };
+    gtk = {
+      icon = {
+        enable = true;
+        accent = "lavender";
+        flavor = "mocha";
+      };
+    };
 
     kvantum = {
       enable = true;
