@@ -10,5 +10,6 @@
     ./services.nix
     ./wayland.nix
     ./programs
+    ../../../shell/nil-shell/home-manager
   ];
 }
