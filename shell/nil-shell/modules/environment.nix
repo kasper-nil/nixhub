@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
-  systemPackages = with pkgs; [
-    quickshell
-  ];
+  environment = {
+    systemPackages = with pkgs; [
+      quickshell
+    ];
+  };
 }
