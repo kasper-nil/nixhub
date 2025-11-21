@@ -6,12 +6,6 @@
 }:
 let
   cfg = config.nixhub.hyprland;
-  catppuccinGtk = pkgs.catppuccin-gtk.override {
-    accents = [ "lavender" ];
-    size = "standard";
-    tweaks = [ "normal" ];
-    variant = "mocha";
-  };
 in
 {
   home = lib.mkIf cfg.enable {
@@ -24,12 +18,10 @@ in
       wl-clipboard
       libnotify
       swappy
-      catppuccinGtk
-
-      libsForQt5.qt5ct # palette/icon GUI for Qt5
-      libsForQt5.qtstyleplugin-kvantum
-      qt6Packages.qt6ct # palette/icon GUI for Qt6
-      qt6Packages.qtstyleplugin-kvantum
+      #   libsForQt5.qt5ct
+      #   libsForQt5.qtstyleplugin-kvantum
+      #   qt6Packages.qt6ct
+      #   qt6Packages.qtstyleplugin-kvantum
     ];
 
     # sessionVariables = {
