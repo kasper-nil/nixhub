@@ -5,7 +5,6 @@ in
 {
   qt = lib.mkIf cfg.enable {
     enable = true;
-    platformTheme.name = "qtct";
     style.name = "kvantum";
   };
 }

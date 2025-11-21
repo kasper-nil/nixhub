@@ -20,37 +20,29 @@ in
       };
     };
 
-    cursors = {
-      enable = true;
-    };
-
     firefox = {
       enable = true;
       force = true;
     };
 
-    hyprland = {
-      enable = true;
-    };
+    cursors.enable = true;
 
-    hyprlock = {
-      enable = true;
-    };
+    hyprland.enable = true;
 
-    vesktop = {
-      enable = true;
-    };
+    hyprlock.enable = true;
 
-    mangohud = {
-      enable = true;
-    };
+    vesktop.enable = true;
 
-    spotify-player = {
-      enable = true;
-    };
+    mangohud.enable = true;
 
-    starship = {
-      enable = true;
-    };
+    spotify-player.enable = true;
+
+    starship.enable = true;
+
+    btop.enable = true;
+
+    ghostty.enable = true;
+
+    yazi.enable = true;
   };
 }

@@ -14,6 +14,11 @@
     catppuccin.url = "github:catppuccin/nix";
 
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+
+    firefox = {
+      url = "github:nix-community/flake-firefox-nightly";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

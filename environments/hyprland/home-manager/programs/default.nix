@@ -1,12 +1,25 @@
-{ ... }:
+{ config, lib, ... }:
+let
+  cfg = config.nixhub.hyprland;
+in
 {
   imports = [
-    ./hyprlock.nix
     ./hyprpanel.nix
     ./nixcord.nix
     ./rofi.nix
     ./spicetify.nix
+    ./alacritty.nix
+    ./firefox.nix
   ];
 
-  disabledModules = [ "./hyprpanel.nix" ];
+  programs = lib.mkIf cfg.enable {
+    hyprlock.enable = true;
+    fastfetch.enable = true;
+    btop.enable = true;
+    htop.enable = true;
+    lutris.enable = true;
+    tmux.enable = true;
+    ghostty.enable = true;
+    yazi.enable = true;
+  };
 }
