@@ -14,6 +14,12 @@ in
       apply = true;
     };
 
+    gtk = {
+      icon = {
+        enable = true;
+      };
+    };
+
     cursors = {
       enable = true;
     };
@@ -45,12 +51,6 @@ in
 
     starship = {
       enable = true;
-    };
-
-    gtk = {
-      icon = {
-        enable = true;
-      };
     };
   };
 }
