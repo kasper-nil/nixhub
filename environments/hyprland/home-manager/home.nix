@@ -29,6 +29,9 @@ in
       GTK_THEME = "catppuccin-mocha-lavender-standard+default";
     };
 
+    file.".themes/catppuccin-mocha-lavender-standard+default".source =
+      "${pkgs.catppuccin-gtk}/share/themes/catppuccin-mocha-lavender-standard+default";
+
     pointerCursor = {
       gtk.enable = true; # GTK 3/4 + Flatpaks
       x11.enable = true; # XWayland / i3 / remote X
