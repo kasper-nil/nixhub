@@ -11,10 +11,10 @@ in
   gtk = lib.mkIf cfg.enable {
     enable = true;
     theme = {
-      name = "catppuccin-mocha-lavender-standard";
+      name = "catppuccin-macchiato-maroon-standard";
       package = pkgs.catppuccin-gtk.override {
-        accents = [ "lavender" ];
-        variant = "mocha";
+        accents = [ "maroon" ];
+        variant = "macchiato";
       };
     };
   };

@@ -13,6 +13,5 @@ in
   programs.spicetify = lib.mkIf cfg.enable {
     enable = true;
     theme = spicePkgs.themes.catppuccin;
-    colorScheme = "mocha";
   };
 }
