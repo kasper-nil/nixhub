@@ -10,6 +10,7 @@ in
     ./spicetify.nix
     ./alacritty.nix
     ./firefox.nix
+    ./yazi.nix
   ];
 
   programs = lib.mkIf cfg.enable {
