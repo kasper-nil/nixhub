@@ -25,6 +25,10 @@ in
       qt6Packages.qtstyleplugin-kvantum
     ];
 
+    sessionVariables = {
+      GTK_THEME = "catppuccin-mocha-lavender-standard+default";
+    };
+
     pointerCursor = {
       gtk.enable = true; # GTK 3/4 + Flatpaks
       x11.enable = true; # XWayland / i3 / remote X
