@@ -9,6 +9,11 @@ in
     flavor = "mocha";
     accent = "lavender";
 
+    kvantum = {
+      enable = true;
+      apply = true;
+    };
+
     cursors = {
       enable = true;
     };
@@ -46,10 +51,6 @@ in
       icon = {
         enable = true;
       };
-    };
-
-    kvantum = {
-      enable = true;
     };
   };
 }
