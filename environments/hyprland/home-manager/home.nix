@@ -6,6 +6,12 @@
 }:
 let
   cfg = config.nixhub.hyprland;
+  catppuccinGtk = pkgs.catppuccin-gtk.override {
+    accents = [ "lavender" ];
+    size = "standard";
+    tweaks = [ "normal" ];
+    variant = "mocha";
+  };
 in
 {
   home = lib.mkIf cfg.enable {
@@ -18,6 +24,7 @@ in
       wl-clipboard
       libnotify
       swappy
+      catppuccinGtk
       #   libsForQt5.qt5ct
       #   libsForQt5.qtstyleplugin-kvantum
       #   qt6Packages.qt6ct
