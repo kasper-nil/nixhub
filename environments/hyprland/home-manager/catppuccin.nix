@@ -6,8 +6,8 @@ in
   catppuccin = lib.mkIf cfg.enable {
     enable = true;
 
-    flavor = "macchiato";
-    accent = "maroon";
+    flavor = "mocha";
+    accent = "lavender";
 
     kvantum = {
       enable = true;
