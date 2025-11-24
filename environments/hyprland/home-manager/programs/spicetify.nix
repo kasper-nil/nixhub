@@ -1,13 +1,13 @@
 {
-  nixhubInputs,
+  nilhubInputs,
   config,
   pkgs,
   lib,
   ...
 }:
 let
-  cfg = config.nixhub.hyprland;
-  spicePkgs = nixhubInputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
+  cfg = config.nilhub.hyprland;
+  spicePkgs = nilhubInputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
 in
 {
   programs.spicetify = lib.mkIf cfg.enable {

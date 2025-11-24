@@ -1,6 +1,6 @@
 { lib, ... }:
 {
-  options.nixhub.hyprland = {
+  options.nilhub.hyprland = {
     enable = lib.mkOption {
       type = lib.types.bool;
       default = false;

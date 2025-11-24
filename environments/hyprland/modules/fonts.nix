@@ -5,7 +5,7 @@
   ...
 }:
 let
-  cfg = config.nixhub.hyprland;
+  cfg = config.nilhub.hyprland;
 in
 {
   fonts = lib.mkIf cfg.enable {

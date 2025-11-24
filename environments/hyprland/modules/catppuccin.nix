@@ -1,6 +1,6 @@
 { config, lib, ... }:
 let
-  cfg = config.nixhub.hyprland;
+  cfg = config.nilhub.hyprland;
 in
 {
   catppuccin = lib.mkIf cfg.enable {

@@ -5,7 +5,7 @@
   ...
 }:
 let
-  cfg = config.nixhub.niri;
+  cfg = config.nilhub.niri;
 in
 {
   home = lib.mkIf cfg.enable {

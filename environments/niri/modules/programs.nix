@@ -4,7 +4,7 @@
   ...
 }:
 let
-  cfg = config.nixhub.niri;
+  cfg = config.nilhub.niri;
 in
 {
   programs = lib.mkIf cfg.enable {

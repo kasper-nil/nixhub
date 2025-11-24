@@ -34,7 +34,7 @@
         (lib.nixosSystem {
           inherit system;
           specialArgs = {
-            nixhubInputs = inputs;
+            nilhubInputs = inputs;
           };
           modules = [
             testModules.nixosModule
@@ -48,7 +48,7 @@
         (homeLib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = {
-            nixhubInputs = inputs;
+            nilhubInputs = inputs;
           };
           modules = [
             testModules.homeModule
@@ -61,7 +61,7 @@
         { ... }:
         {
           _module.args = {
-            nixhubInputs = inputs;
+            nilhubInputs = inputs;
           };
 
           imports = [
@@ -74,7 +74,7 @@
         { ... }:
         {
           _module.args = {
-            nixhubInputs = inputs;
+            nilhubInputs = inputs;
           };
 
           imports = [
@@ -93,8 +93,8 @@
           homeLib = home-manager.lib;
         in
         {
-          nixhub-nixos-module-check = mkNixosModuleTest { inherit lib system; };
-          nixhub-home-module-check = mkHomeModuleTest { inherit pkgs homeLib; };
+          nilhub-nixos-module-check = mkNixosModuleTest { inherit lib system; };
+          nilhub-home-module-check = mkHomeModuleTest { inherit pkgs homeLib; };
         };
 
       # formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;

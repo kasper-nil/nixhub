@@ -5,7 +5,7 @@
   ...
 }:
 let
-  cfg = config.nixhub.hyprland;
+  cfg = config.nilhub.hyprland;
 in
 {
   programs.rofi = lib.mkIf cfg.enable {

@@ -6,7 +6,7 @@
   ...
 }:
 let
-  cfg = config.nixhub.niri;
+  cfg = config.nilhub.niri;
 in
 {
   programs.spicetify = lib.mkIf cfg.enable {

@@ -2,7 +2,7 @@
   nixosModule =
     { ... }:
     {
-      nixhub = {
+      nilhub = {
         hyprland.enable = true;
         niri.enable = false;
       };
@@ -39,7 +39,7 @@
   homeModule =
     { ... }:
     {
-      nixhub = {
+      nilhub = {
         hyprland.enable = true;
         niri.enable = false;
       };

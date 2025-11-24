@@ -1,6 +1,6 @@
 { config, lib, ... }:
 let
-  cfg = config.nixhub.hyprland;
+  cfg = config.nilhub.hyprland;
 in
 {
   programs = lib.mkIf cfg.enable {

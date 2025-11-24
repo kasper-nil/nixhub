@@ -1,6 +1,6 @@
 { lib, ... }:
 {
-  options.nixhub.niri = {
+  options.nilhub.niri = {
     enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
