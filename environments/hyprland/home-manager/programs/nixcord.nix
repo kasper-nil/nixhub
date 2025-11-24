@@ -11,8 +11,7 @@ in
       useQuickCss = true; # use out quickCSS
       themeLinks = [
         # or use an online theme
-        # "https://raw.githubusercontent.com/catppuccin/discord/refs/heads/main/themes/mocha.theme.css"
-        "https://raw.githubusercontent.com/catppuccin/discord/refs/heads/main/themes/macchiato.theme.css"
+        "https://raw.githubusercontent.com/catppuccin/discord/refs/heads/main/themes/mocha.theme.css"
       ];
       frameless = true; # Set some Vencord options
     };

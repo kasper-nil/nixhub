@@ -9,7 +9,6 @@ in
     ./rofi.nix
     ./spicetify.nix
     ./alacritty.nix
-    ./firefox.nix
     ./yazi.nix
   ];
 
@@ -22,5 +21,6 @@ in
     tmux.enable = true;
     ghostty.enable = true;
     yazi.enable = true;
+    firefox.enable = true;
   };
 }
