@@ -9,12 +9,12 @@ let
   # Generate module lists for each environment
   mkEnvironmentModules = envName: {
     nixos = {
-      options = ./environments/${envName}/config/modules.nix;
-      implementation = ./environments/${envName}/modules;
+      options = ./${envName}/config/modules.nix;
+      implementation = ./${envName}/modules;
     };
     home = {
-      options = ./environments/${envName}/config/home-manager.nix;
-      implementation = ./environments/${envName}/home-manager;
+      options = ./${envName}/config/home-manager.nix;
+      implementation = ./${envName}/home-manager;
     };
   };
 
