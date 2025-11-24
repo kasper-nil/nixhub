@@ -14,11 +14,6 @@
     catppuccin.url = "github:catppuccin/nix";
 
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
-
-    firefox = {
-      url = "github:nix-community/flake-firefox-nightly";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
@@ -30,8 +25,7 @@
     }@inputs:
     let
       # Import our module collection logic
-      nixhubModules = import ./main.nix;
-
+      environmentModules = import ./environments;
       testModules = import ./lib/test-modules.nix;
 
       # Helper to create NixOS test
@@ -73,7 +67,7 @@
           imports = [
             inputs.catppuccin.nixosModules.catppuccin
           ]
-          ++ nixhubModules.nixosModules;
+          ++ environmentModules.nixosModules;
         };
 
       homeModules.default =
@@ -88,7 +82,7 @@
             inputs.nixcord.homeModules.nixcord
             inputs.spicetify-nix.homeManagerModules.spicetify
           ]
-          ++ nixhubModules.homeModules;
+          ++ environmentModules.homeModules;
         };
 
       checks.x86_64-linux =
