@@ -25,6 +25,8 @@ in
       force = true;
     };
 
+    zsh-syntax-highlighting.enable = true;
+
     cursors.enable = true;
 
     hyprland.enable = true;
