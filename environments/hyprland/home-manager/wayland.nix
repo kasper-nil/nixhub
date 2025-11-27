@@ -1,4 +1,8 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  ...
+}:
 let
   cfg = config.nilhub.hyprland;
 in
@@ -7,6 +11,9 @@ in
     windowManager = {
       hyprland = {
         enable = true;
+
+        plugins = [
+        ];
 
         systemd.variables = [ "all" ];
 
@@ -52,6 +59,9 @@ in
             "$mod, right, movefocus, r"
             "$mod, up, movefocus, u"
             "$mod, down, movefocus, d"
+
+            "$mod, mouse_up, layoutmsg, move +col"
+            "$mod, mouse_down, layoutmsg, move -col"
 
             "$mod SHIFT, s, exec, hyprshot -m region --clipboard-only"
 
@@ -103,6 +113,14 @@ in
             resize_on_border = false;
             allow_tearing = false;
             layout = "dwindle";
+          };
+
+          plugin = {
+            hyprscrolling = {
+              column_width = 1;
+              fullscreen_on_one_column = false;
+              follow_focus = false;
+            };
           };
 
           decoration = {
