@@ -4,8 +4,7 @@ let
 in
 {
   programs = lib.mkIf cfg.enable {
-    thunar = {
-      enable = true;
-    };
+    thunar.enable = true;
+    dconf.enable = true;
   };
 }

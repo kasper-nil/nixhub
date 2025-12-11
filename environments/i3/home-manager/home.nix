@@ -18,9 +18,7 @@ in
       libreoffice
       gearlever
       dmenu
-      i3status
       i3lock
-      i3blocks
     ];
 
     pointerCursor = {

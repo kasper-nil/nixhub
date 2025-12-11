@@ -25,6 +25,8 @@ in
       force = true;
     };
 
+    polybar.enable = true;
+
     zsh-syntax-highlighting.enable = true;
 
     cursors.enable = true;
