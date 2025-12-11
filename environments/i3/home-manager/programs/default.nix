@@ -1,0 +1,24 @@
+{ config, lib, ... }:
+let
+  cfg = config.nilhub.i3;
+in
+{
+  imports = [
+    ./nixcord.nix
+    ./rofi.nix
+    ./spicetify.nix
+    ./alacritty.nix
+    ./yazi.nix
+  ];
+
+  programs = lib.mkIf cfg.enable {
+    fastfetch.enable = true;
+    btop.enable = true;
+    htop.enable = true;
+    lutris.enable = true;
+    tmux.enable = true;
+    ghostty.enable = true;
+    yazi.enable = true;
+    firefox.enable = true;
+  };
+}
