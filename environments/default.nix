@@ -3,6 +3,7 @@ let
   environments = [
     "hyprland"
     "niri"
+    "i3"
     # "plasma"
   ];
 

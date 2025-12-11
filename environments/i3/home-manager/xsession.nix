@@ -10,9 +10,12 @@ let
 in
 {
   xsession = lib.mkIf cfg.enable {
+    enable = true;
+
     windowManager.i3 = {
       enable = true;
-      config = ''
+
+      extraConfig = ''
         set $mod ${mod}
 
         exec_always --no-startup-id xrandr \
