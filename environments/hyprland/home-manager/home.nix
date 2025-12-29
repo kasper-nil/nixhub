@@ -20,14 +20,13 @@ in
       libnotify
       swappy
       openvpn
-
-      # Apps
       qbittorrent
       pavucontrol
       xarchiver
       vlc
       libreoffice
       gearlever
+      flameshot
     ];
 
     pointerCursor = {

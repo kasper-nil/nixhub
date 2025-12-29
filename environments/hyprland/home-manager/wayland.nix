@@ -224,6 +224,9 @@ in
             # "renderunfocused, tag:apt"
             # "size 100% 100%, tag:apt"
             # "center, tag:apt"
+
+            "tag +ee2, title:(Exiled Exchange 2)"
+            "noblur, tag:ee2"
           ];
         };
       };
