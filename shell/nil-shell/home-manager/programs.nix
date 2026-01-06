@@ -1,9 +1,0 @@
-{ ... }:
-{
-  programs = {
-    quickshell = {
-      enable = true;
-
-    };
-  };
-}

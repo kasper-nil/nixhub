@@ -5,6 +5,6 @@
     ./fonts.nix
     ./programs.nix
     ./services.nix
-    ../../../shell/nil-shell/modules
+    ./environment.nix
   ];
 }

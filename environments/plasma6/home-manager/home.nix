@@ -1,5 +1,4 @@
 {
-  pkgs,
   config,
   lib,
   ...
@@ -9,13 +8,5 @@ let
 in
 {
   home = lib.mkIf cfg.enable {
-    packages = with pkgs; [
-      openvpn
-      qbittorrent
-      pavucontrol
-      vlc
-      libreoffice
-      gearlever
-    ];
   };
 }
