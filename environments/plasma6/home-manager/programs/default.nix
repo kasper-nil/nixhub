@@ -17,7 +17,6 @@ in
     htop.enable = true;
     lutris.enable = true;
     tmux.enable = true;
-    ghostty.enable = true;
     yazi.enable = true;
     firefox.enable = true;
   };
