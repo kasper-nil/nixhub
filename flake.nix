@@ -9,6 +9,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+
     nixcord.url = "github:kaylorben/nixcord";
 
     catppuccin.url = "github:catppuccin/nix";
@@ -81,6 +87,7 @@
             inputs.catppuccin.homeModules.catppuccin
             inputs.nixcord.homeModules.nixcord
             inputs.spicetify-nix.homeManagerModules.spicetify
+            inputs.plasma-manager.homeModules.plasma-manager
           ]
           ++ environmentModules.homeModules;
         };

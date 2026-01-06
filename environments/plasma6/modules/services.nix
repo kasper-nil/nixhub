@@ -1,24 +1,22 @@
 {
-  pkgs,
   config,
   lib,
   ...
 }:
 let
-  cfg = config.nilhub.hyprland;
+  cfg = config.nilhub.plasma6;
 in
 {
   services = lib.mkIf cfg.enable {
-    displayManager = {
-      enable = true;
-      sddm = {
-        enable = true;
-        package = pkgs.kdePackages.sddm;
-      };
+    desktopManager = {
+      plasma6.enable = true;
     };
 
-    blueman = {
-      enable = true;
+    displayManager = {
+      sddm = {
+        enable = true;
+        wayland.enable = true;
+      };
     };
   };
 }

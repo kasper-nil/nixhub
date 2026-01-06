@@ -3,8 +3,8 @@ let
   environments = [
     "hyprland"
     "niri"
+    "plasma6"
     # "i3"
-    # "plasma"
   ];
 
   # Generate module lists for each environment
