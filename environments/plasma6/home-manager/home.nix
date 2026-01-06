@@ -22,12 +22,8 @@ in
       btop
       htop
       lutris
-      fastfetch
-      btop
-      htop
       tmux
       yazi
-      firefox
     ];
   };
 }

@@ -11,5 +11,9 @@ in
     thunar = {
       enable = true;
     };
+
+    nm-applet = {
+      enable = true;
+    };
   };
 }
