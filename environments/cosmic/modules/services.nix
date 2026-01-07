@@ -15,5 +15,7 @@ in
     displayManager = {
       cosmic-greeter.enable = true;
     };
+
+    system76-scheduler.enable = true;
   };
 }
