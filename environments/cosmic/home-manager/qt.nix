@@ -4,7 +4,7 @@ let
 in
 {
   qt = lib.mkIf cfg.enable {
-    # enable = true;
-    # style.name = "kvantum";
+    enable = true;
+    style.name = "kvantum";
   };
 }

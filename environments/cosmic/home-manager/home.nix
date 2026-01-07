@@ -16,14 +16,15 @@ in
       libreoffice
       gearlever
       bottles
-      firefox
       brave
       fastfetch
-      btop
-      htop
       lutris
       tmux
-      yazi
     ];
+
+    pointerCursor = {
+      gtk.enable = true;
+      x11.enable = true;
+    };
   };
 }

@@ -14,10 +14,18 @@ in
       apply = true;
     };
 
+    gtk = {
+      icon = {
+        enable = true;
+      };
+    };
+
     firefox = {
       enable = true;
       force = true;
     };
+
+    cursors.enable = true;
 
     zsh-syntax-highlighting.enable = true;
 
