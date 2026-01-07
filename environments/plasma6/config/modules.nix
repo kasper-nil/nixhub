@@ -4,7 +4,7 @@
     enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
-      description = "Enable hyprland desktop environment";
+      description = "Enable KDE Plasma 6 desktop environment";
     };
   };
 }

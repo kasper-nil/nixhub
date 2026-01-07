@@ -4,6 +4,7 @@ let
     "hyprland"
     "niri"
     "plasma6"
+    "cosmic"
     # "i3"
   ];
 

@@ -1,0 +1,18 @@
+{ config, lib, ... }:
+let
+  cfg = config.nilhub.cosmic;
+in
+{
+  programs.yazi = lib.mkIf cfg.enable {
+    enable = true;
+
+    settings = {
+      manager = {
+        show_hidden = true;
+        sort_by = "mtime";
+        sort_dir_first = true;
+        sort_reverse = true;
+      };
+    };
+  };
+}

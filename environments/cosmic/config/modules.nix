@@ -1,10 +1,10 @@
 { lib, ... }:
 {
-  options.nilhub.plasma6 = {
+  options.nilhub.cosmic = {
     enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
-      description = "Enable KDE Plasma 6 desktop environment";
+      description = "Enable COSMIC desktop environment";
     };
   };
 }
