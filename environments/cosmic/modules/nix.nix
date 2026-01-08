@@ -1,5 +1,4 @@
 {
-  pkgs,
   config,
   lib,
   ...
@@ -8,6 +7,6 @@ let
   cfg = config.nilhub.cosmic;
 in
 {
-  services = lib.mkIf cfg.enable {
+  nix = lib.mkIf cfg.enable {
   };
 }

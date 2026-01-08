@@ -15,13 +15,13 @@
       inputs.home-manager.follows = "home-manager";
     };
 
-    cosmic-manager = {
-      url = "github:HeitorAugustoLN/cosmic-manager";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
-      };
-    };
+    # cosmic-manager = {
+    #   url = "github:HeitorAugustoLN/cosmic-manager";
+    #   inputs = {
+    #     nixpkgs.follows = "nixpkgs";
+    #     home-manager.follows = "home-manager";
+    #   };
+    # };
 
     nixcord.url = "github:kaylorben/nixcord";
 
@@ -96,7 +96,7 @@
             inputs.nixcord.homeModules.nixcord
             inputs.spicetify-nix.homeManagerModules.spicetify
             inputs.plasma-manager.homeModules.plasma-manager
-            inputs.cosmic-manager.homeManagerModules.cosmic-manager
+            # inputs.cosmic-manager.homeManagerModules.cosmic-manager
           ]
           ++ environmentModules.homeModules;
         };

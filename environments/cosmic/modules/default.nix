@@ -6,5 +6,6 @@
     ./programs.nix
     ./services.nix
     ./environment.nix
+    ./nix.nix
   ];
 }
