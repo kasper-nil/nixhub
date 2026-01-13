@@ -30,6 +30,8 @@ in
       wl-clipboard
       libnotify
       swappy
+      playerctl
+      pamixer
     ];
 
     pointerCursor = {

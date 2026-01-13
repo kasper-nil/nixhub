@@ -7,5 +7,6 @@
     ./services.nix
     ./environment.nix
     ./nix.nix
+    ./nixpkgs.nix
   ];
 }

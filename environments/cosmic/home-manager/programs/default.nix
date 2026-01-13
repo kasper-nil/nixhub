@@ -8,10 +8,10 @@ in
     ./spicetify.nix
     ./alacritty.nix
     ./yazi.nix
+    ./btop.nix
   ];
 
   programs = lib.mkIf cfg.enable {
-    btop.enable = true;
     firefox.enable = true;
   };
 }

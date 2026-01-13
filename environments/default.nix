@@ -2,9 +2,9 @@ let
   # List of available desktop environments
   environments = [
     "hyprland"
-    "niri"
     "plasma6"
     "cosmic"
+    "niri"
     # "i3"
   ];
 
@@ -21,12 +21,12 @@ let
   };
 
   # Collect all modules
-  allEnvironments = builtins.map mkEnvironmentModules environments;
+  allEnvironments = map mkEnvironmentModules environments;
 in
 {
   # All NixOS modules (options + implementations)
   nixosModules = builtins.concatLists (
-    builtins.map (env: [
+    map (env: [
       env.nixos.options
       env.nixos.implementation
     ]) allEnvironments
@@ -34,7 +34,7 @@ in
 
   # All Home Manager modules (options + implementations)
   homeModules = builtins.concatLists (
-    builtins.map (env: [
+    map (env: [
       env.home.options
       env.home.implementation
     ]) allEnvironments

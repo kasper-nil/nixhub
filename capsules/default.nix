@@ -15,19 +15,19 @@ let
   };
 
   # Collect all modules
-  allEnvironments = builtins.map mkEnvironmentModules capsules;
+  allEnvironments = map mkEnvironmentModules capsules;
 in
 {
   # All NixOS modules (options + implementations)
   nixosModules = builtins.concatLists (
-    builtins.map (env: [
+    map (env: [
       env.nixos.implementation
     ]) allEnvironments
   );
 
   # All Home Manager modules (options + implementations)
   homeModules = builtins.concatLists (
-    builtins.map (env: [
+    map (env: [
       env.home.implementation
     ]) allEnvironments
   );
