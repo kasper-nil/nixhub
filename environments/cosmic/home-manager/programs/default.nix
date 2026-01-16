@@ -13,5 +13,6 @@ in
 
   programs = lib.mkIf cfg.enable {
     firefox.enable = true;
+    brave.enable = true;
   };
 }

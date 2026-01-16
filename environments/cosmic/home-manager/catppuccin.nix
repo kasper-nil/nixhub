@@ -25,6 +25,8 @@ in
       force = true;
     };
 
+    brave.enable = true;
+
     cursors.enable = true;
 
     zsh-syntax-highlighting.enable = true;

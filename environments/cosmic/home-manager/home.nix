@@ -16,7 +16,6 @@ in
       libreoffice
       gearlever
       bottles
-      brave
       fastfetch
       lutris
       tmux
