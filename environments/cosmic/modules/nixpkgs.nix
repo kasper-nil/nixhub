@@ -8,7 +8,7 @@ let
 in
 {
   nixpkgs = lib.mkIf cfg.enable {
-    nixpkgs.config.packageOverrides = pkgs: {
+    config.packageOverrides = pkgs: {
       cosmic = (import <nixos-unstable> { }).cosmic;
     };
 
