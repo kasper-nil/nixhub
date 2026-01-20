@@ -4,7 +4,6 @@
     {
       nilhub = {
         hyprland.enable = true;
-        niri.enable = false;
       };
 
       nixpkgs.config.allowUnfree = true;
@@ -41,7 +40,6 @@
     {
       nilhub = {
         hyprland.enable = true;
-        niri.enable = false;
       };
 
       nixpkgs.config.allowUnfree = true;
