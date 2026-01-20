@@ -22,8 +22,8 @@ in
 
           "$terminal" = "alacritty";
           "$fileManager" = "thunar";
-          "$menu" = "noctalia-shell ipc call launcher toggle";
-          "$lock" = "noctalia-shell ipc call lockScreen lock";
+          "$menu" = "";
+          "$lock" = "rofi -show drun";
           "$browser" = "brave";
 
           # "$lock" = "hyprlock";
@@ -33,11 +33,6 @@ in
           workspace = cfg.workspace;
 
           exec-once = [
-            # "hyprpanel"
-            # "hyprpaper"
-            # "noctalia-shell"
-            "nm-applet --indicator"
-            "dms run"
             "dbus-update-activation-environment --systemd --all"
           ];
 
