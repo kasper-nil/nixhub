@@ -5,7 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -13,11 +13,6 @@
       url = "github:nix-community/plasma-manager";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
-    };
-
-    noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nixcord.url = "github:kaylorben/nixcord";
@@ -77,7 +72,6 @@
 
           imports = [
             inputs.catppuccin.nixosModules.catppuccin
-            inputs.noctalia.nixosModules.default
           ]
           ++ environmentModules.nixosModules;
         };
@@ -94,7 +88,6 @@
             inputs.nixcord.homeModules.nixcord
             inputs.spicetify-nix.homeManagerModules.spicetify
             inputs.plasma-manager.homeModules.plasma-manager
-            inputs.noctalia.homeModules.default
           ]
           ++ environmentModules.homeModules;
         };

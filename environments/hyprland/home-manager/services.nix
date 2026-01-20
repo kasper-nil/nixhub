@@ -8,27 +8,27 @@ in
       enable = true;
     };
 
-    hyprpaper = {
-      enable = true;
-      settings = {
-        ipc = "on";
-        splash = false;
-        preload = [
-          "/etc/nixos/assets/wallpaper.png"
-        ];
+    # hyprpaper = {
+    #   enable = true;
+    #   settings = {
+    #     ipc = "on";
+    #     splash = false;
+    #     preload = [
+    #       "/etc/nixos/assets/wallpaper.png"
+    #     ];
 
-        wallpaper = [
-          ", /etc/nixos/assets/wallpaper.png"
-        ];
-      };
-    };
+    #     wallpaper = [
+    #       ", /etc/nixos/assets/wallpaper.png"
+    #     ];
+    #   };
+    # };
 
-    hypridle = {
-      enable = false;
-    };
+    # hypridle = {
+    #   enable = false;
+    # };
 
-    hyprsunset = {
-      enable = true;
-    };
+    # hyprsunset = {
+    #   enable = true;
+    # };
   };
 }

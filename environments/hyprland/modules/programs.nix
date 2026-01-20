@@ -7,5 +7,7 @@ in
     hyprland = {
       enable = true;
     };
+
+    dms-shell.enable = true;
   };
 }

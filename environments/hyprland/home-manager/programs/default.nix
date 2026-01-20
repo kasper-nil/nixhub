@@ -4,13 +4,13 @@ let
 in
 {
   imports = [
-    ./hyprpanel.nix
+    # ./hyprpanel.nix
     ./nixcord.nix
     ./rofi.nix
     ./spicetify.nix
     ./alacritty.nix
     ./yazi.nix
-    ./noctalia.nix
+    # ./dms-shell.nix
   ];
 
   programs = lib.mkIf cfg.enable {

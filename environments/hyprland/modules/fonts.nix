@@ -9,7 +9,7 @@ let
 in
 {
   fonts = lib.mkIf cfg.enable {
-    fontconfig.enable = true;
+    # fontconfig.enable = true;
 
     packages = with pkgs; [
       nerd-fonts.jetbrains-mono

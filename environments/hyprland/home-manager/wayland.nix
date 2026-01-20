@@ -34,11 +34,11 @@ in
 
           exec-once = [
             # "hyprpanel"
-            "hyprpaper"
+            # "hyprpaper"
+            # "noctalia-shell"
             "nm-applet --indicator"
+            "dms run"
             "dbus-update-activation-environment --systemd --all"
-            "noctalia-shell"
-            # "systemctl --user start hyprland-session.target"
           ];
 
           exec = [
