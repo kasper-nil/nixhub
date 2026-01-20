@@ -16,27 +16,19 @@ in
       libreoffice
       gearlever
       bottles
-      firefox
-      brave
-      xarchiver
-      flameshot
       pavucontrol
-      hyprlock
-      hyprsunset
-      hyprshot # or grimblast
-      hyprpicker # for color picking
-      grim
-      slurp
-      wl-clipboard
-      libnotify
-      swappy
-      playerctl
-      pamixer
+      hyprpicker
+      nautilus
+      file-roller
+      gnome-calendar
+      networkmanagerapplet
     ];
 
     pointerCursor = {
       gtk.enable = true;
+
       x11.enable = true;
+
       hyprcursor = {
         enable = true;
       };

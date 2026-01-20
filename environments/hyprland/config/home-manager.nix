@@ -24,6 +24,20 @@
       example = "[ workspace=1, monitor:DP-2 ]";
     };
 
+    noctalia = {
+      bar = {
+        monitor = lib.mkOption {
+          type = with lib.types; listOf str;
+          default = [ ];
+          description = "List of monitors noctalia bar should be displayed on";
+          example = [
+            "DP-2"
+            "DP-3"
+          ];
+        };
+      };
+    };
+
     hyprpanel = {
       monitor = lib.mkOption {
         type = with lib.types; listOf str;

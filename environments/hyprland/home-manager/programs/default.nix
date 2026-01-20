@@ -10,17 +10,18 @@ in
     ./spicetify.nix
     ./alacritty.nix
     ./yazi.nix
+    ./noctalia.nix
   ];
 
   programs = lib.mkIf cfg.enable {
-    hyprlock.enable = true;
     fastfetch.enable = true;
     btop.enable = true;
-    htop.enable = true;
     lutris.enable = true;
     tmux.enable = true;
-    ghostty.enable = true;
     yazi.enable = true;
     firefox.enable = true;
+    brave.enable = true;
+    hyprlock.enable = true;
+    hyprshot.enable = true;
   };
 }

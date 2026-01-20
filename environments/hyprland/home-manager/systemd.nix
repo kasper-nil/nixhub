@@ -7,6 +7,6 @@ let
   cfg = config.nilhub.hyprland;
 in
 {
-  environment = lib.mkIf cfg.enable {
+  systemd = lib.mkIf cfg.enable {
   };
 }

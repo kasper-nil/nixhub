@@ -22,18 +22,23 @@ in
 
           "$terminal" = "alacritty";
           "$fileManager" = "thunar";
-          "$menu" = "rofi -show drun";
-          "$lock" = "hyprlock";
+          "$menu" = "noctalia-shell ipc call launcher toggle";
+          "$lock" = "noctalia-shell ipc call lockScreen lock";
+          "$browser" = "brave";
+
+          # "$lock" = "hyprlock";
 
           monitor = cfg.monitor;
 
           workspace = cfg.workspace;
 
           exec-once = [
-            "hyprpanel"
+            # "hyprpanel"
             "hyprpaper"
             "nm-applet --indicator"
             "dbus-update-activation-environment --systemd --all"
+            "noctalia-shell"
+            # "systemctl --user start hyprland-session.target"
           ];
 
           exec = [
@@ -48,6 +53,7 @@ in
             "$mod, V, togglefloating,"
             "$mod, D, exec, $menu"
             "$mod, L, exec, $lock"
+            "$mod, B, exec, $browser"
 
             "$mod, F, fullscreen"
             "$mod, Tab, cyclenext,"
@@ -78,7 +84,7 @@ in
                 in
                 [
                   "$mod, code:1${toString i}, workspace, ${toString ws}"
-                  "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
+                  "$mod CTRL, code:1${toString i}, movetoworkspace, ${toString ws}"
                 ]
               ) 9
             )
@@ -90,8 +96,8 @@ in
           ];
 
           bindel = [
-            ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
-            ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+            ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+"
+            ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"
             ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
             ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
             ",XF86MonBrightnessUp, exec, ddcutil setvcp --noverify --skip-ddc-checks 10 + 10"
@@ -107,11 +113,7 @@ in
 
           general = {
             gaps_in = 5;
-            gaps_out = "0, 10, 10, 10";
-            "col.active_border" = "rgba(b4befeff)";
-            "col.inactive_border" = "rgba(595959aa)";
-            resize_on_border = false;
-            allow_tearing = false;
+            gaps_out = 10;
             layout = "dwindle";
           };
 
@@ -126,8 +128,6 @@ in
           decoration = {
             rounding = 10;
             rounding_power = 2;
-            active_opacity = 1.0;
-            inactive_opacity = 1.0;
 
             shadow = {
               enabled = true;
@@ -139,7 +139,7 @@ in
             blur = {
               enabled = true;
               size = 3;
-              passes = 1;
+              passes = 2;
               vibrancy = 0.1696;
             };
           };
@@ -202,32 +202,6 @@ in
               natural_scroll = false;
             };
           };
-
-          windowrule = [
-            "suppressevent maximize, class:.*"
-            "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
-          ];
-
-          windowrulev2 = [
-            # Attempt on fixing Awakened Trade Macro overlay
-            # "tag +poe, title:(Path of Exile)"
-            # "tag +poe, class:(steam_app_238960)"
-            # "float, tag:poe"
-
-            # "tag +apt, title:(Awakened PoE Trade)"
-            # "float, tag:apt "
-            # "noblur, tag:apt"
-            # "nofocus, tag:apt # Disable auto-focus"
-            # "noshadow, tag:apt"
-            # "noborder, tag:apt"
-            # "pin, tag:apt"
-            # "renderunfocused, tag:apt"
-            # "size 100% 100%, tag:apt"
-            # "center, tag:apt"
-
-            "tag +ee2, title:(Exiled Exchange 2)"
-            "noblur, tag:ee2"
-          ];
         };
       };
     };

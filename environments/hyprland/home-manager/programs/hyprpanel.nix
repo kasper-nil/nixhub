@@ -6,7 +6,10 @@ let
       "workspaces"
       "windowtitle"
     ];
-    middle = [ "media" ];
+    middle = [
+      "media"
+      "testtest"
+    ];
     right = [
       "systray"
       "hyprsunset"
@@ -19,10 +22,10 @@ let
       "storage"
       "bluetooth"
       "network"
-      "clock"
       "dashboard"
     ];
   };
+
   hideLayout = {
     left = [ ];
     middle = [ ];
@@ -31,7 +34,7 @@ let
 in
 {
   programs.hyprpanel = lib.mkIf cfg.enable {
-    enable = true;
+    enable = false;
 
     # See 'https://hyprpanel.com/configuration/settings.html'.
     settings = {
@@ -54,11 +57,24 @@ in
           };
 
           hyprsunset = {
-            label = false;
+            label = "";
             offIcon = "󰛨";
             onIcon = "󱩌";
             pollingInterval = 2000;
             temperature = "3500k";
+          };
+
+          testtest = {
+            icon = "󰃭";
+            execute = "date '+%a %d %b'"; # or whatever you want
+            interval = 1000;
+
+            # show no label text; either omit label or set it to an empty template
+            label = "";
+
+            actions = {
+              onLeftClick = "gnome-calendar";
+            };
           };
 
           ram.labelType = "used/total";
@@ -76,14 +92,9 @@ in
       };
 
       menus = {
-        clock = {
-          time.military = true;
-          weather.enabled = false;
-        };
-
         dashboard = {
           directories.enabled = false;
-          shortcuts.enabled = true;
+          shortcuts.enabled = false;
         };
       };
 

@@ -15,13 +15,10 @@
       inputs.home-manager.follows = "home-manager";
     };
 
-    # cosmic-manager = {
-    #   url = "github:HeitorAugustoLN/cosmic-manager";
-    #   inputs = {
-    #     nixpkgs.follows = "nixpkgs";
-    #     home-manager.follows = "home-manager";
-    #   };
-    # };
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nixcord.url = "github:kaylorben/nixcord";
 
@@ -80,6 +77,7 @@
 
           imports = [
             inputs.catppuccin.nixosModules.catppuccin
+            inputs.noctalia.nixosModules.default
           ]
           ++ environmentModules.nixosModules;
         };
@@ -96,7 +94,7 @@
             inputs.nixcord.homeModules.nixcord
             inputs.spicetify-nix.homeManagerModules.spicetify
             inputs.plasma-manager.homeModules.plasma-manager
-            # inputs.cosmic-manager.homeManagerModules.cosmic-manager
+            inputs.noctalia.homeModules.default
           ]
           ++ environmentModules.homeModules;
         };

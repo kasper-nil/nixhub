@@ -7,13 +7,5 @@ in
     hyprland = {
       enable = true;
     };
-
-    thunar = {
-      enable = true;
-    };
-
-    nm-applet = {
-      enable = true;
-    };
   };
 }

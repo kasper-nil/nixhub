@@ -20,31 +20,16 @@ in
       };
     };
 
-    firefox = {
-      enable = true;
-      force = true;
-    };
-
+    brave.enable = true;
     zsh-syntax-highlighting.enable = true;
-
     cursors.enable = true;
-
     hyprland.enable = true;
-
     hyprlock.enable = true;
-
     vesktop.enable = true;
-
     mangohud.enable = true;
-
     spotify-player.enable = true;
-
     starship.enable = true;
-
     btop.enable = true;
-
-    ghostty.enable = true;
-
     yazi.enable = true;
   };
 }
