@@ -4,13 +4,10 @@ let
 in
 {
   imports = [
-    # ./hyprpanel.nix
-    ./nixcord.nix
-    ./rofi.nix
     ./spicetify.nix
     ./alacritty.nix
     ./yazi.nix
-    # ./dms-shell.nix
+    ./nixcord.nix
   ];
 
   programs = lib.mkIf cfg.enable {
@@ -21,7 +18,5 @@ in
     yazi.enable = true;
     firefox.enable = true;
     brave.enable = true;
-    hyprlock.enable = true;
-    hyprshot.enable = true;
   };
 }

@@ -20,11 +20,10 @@ in
       };
     };
 
-    brave.enable = true;
-    zsh-syntax-highlighting.enable = true;
     cursors.enable = true;
     hyprland.enable = true;
-    hyprlock.enable = true;
+    brave.enable = true;
+    zsh-syntax-highlighting.enable = true;
     vesktop.enable = true;
     mangohud.enable = true;
     spotify-player.enable = true;

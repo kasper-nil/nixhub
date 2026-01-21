@@ -20,42 +20,35 @@ in
         settings = {
           "$mod" = "SUPER";
 
-          "$terminal" = "alacritty";
-          "$fileManager" = "thunar";
-          "$menu" = "";
-          "$lock" = "rofi -show drun";
-          "$browser" = "brave";
-
-          # "$lock" = "hyprlock";
-
           monitor = cfg.monitor;
 
           workspace = cfg.workspace;
 
-          exec-once = [
-            "dbus-update-activation-environment --systemd --all"
-          ];
+          # exec-once = [
+          #   "dbus-update-activation-environment --systemd --all"
+          # ];
 
           exec = [
-            "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
+            # "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
           ];
 
           bind = [
-            ", Print, exec, grimblast copy area"
+            "$mod, D, exec, dms ipc call spotlight toggle"
+            "$mod, L, exec, dms ipc call lock lock"
+            "$mod, W, exec, dms ipc call hypr toggleOverview"
+            "$mod, T, exec, alacritty"
+            "$mod, B, exec, brave"
+            "$mod SHIFT, s, exec, hyprshot -m region --clipboard-only"
+            "$mod SHIFT, c, exec, hyprpicker"
 
-            "$mod, T, exec, $terminal"
             "$mod, Q, killactive,"
             "$mod, V, togglefloating,"
-            "$mod, D, exec, $menu"
-            "$mod, L, exec, $lock"
-            "$mod, B, exec, $browser"
 
             "$mod, F, fullscreen"
             "$mod, Tab, cyclenext,"
             "$mod, Tab, bringactivetotop,"
             "$mod SHIFT, P, exec, hyprctl dispatch pin"
 
-            # Move focus with mainMod + arrow keys
             "$mod, left, movefocus, l"
             "$mod, right, movefocus, r"
             "$mod, up, movefocus, u"
@@ -63,10 +56,6 @@ in
 
             "$mod, mouse_up, layoutmsg, move +col"
             "$mod, mouse_down, layoutmsg, move -col"
-
-            "$mod SHIFT, s, exec, hyprshot -m region --clipboard-only"
-
-            "$mod SHIFT, c, exec, hyprpicker"
           ]
           ++ (
             # workspaces
@@ -91,24 +80,34 @@ in
           ];
 
           bindel = [
-            ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+"
-            ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"
-            ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-            ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-            ",XF86MonBrightnessUp, exec, ddcutil setvcp --noverify --skip-ddc-checks 10 + 10"
-            ",XF86MonBrightnessDown, exec, ddcutil setvcp --noverify --skip-ddc-checks 10 - 10"
+            # ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+"
+            # ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"
+            # ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+            # ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+            # ",XF86MonBrightnessUp, exec, ddcutil setvcp --noverify --skip-ddc-checks 10 + 10"
+            # ",XF86MonBrightnessDown, exec, ddcutil setvcp --noverify --skip-ddc-checks 10 - 10"
+            ",XF86AudioRaiseVolume, exec, dms ipc call audio increment 1"
+            ",XF86AudioLowerVolume, exec, dms ipc call audio decrement 1"
+            ",XF86AudioMute, exec, dms ipc call audio mute"
+            ",XF86AudioMicMute, exec, dms ipc call audio micmute"
+            '',XF86MonBrightnessUp, exec, ipc call brightness increment 10 ""''
+            '',XF86MonBrightnessDown, exec, ipc call brightness decrement 10 ""''
+            ", XF86AudioPrev, exec, dms ipc call mpris previous"
+            ", XF86AudioNext, exec, dms ipc call mpris next"
+            ", XF86AudioPause, exec, dms ipc call mpris pause"
+            ", XF86AudioPlay, exec, dms ipc call mpris play"
           ];
 
           bindl = [
-            ", XF86AudioNext, exec, playerctl next"
-            ", XF86AudioPause, exec, playerctl play-pause"
-            ", XF86AudioPlay, exec, playerctl play-pause"
-            ", XF86AudioPrev, exec, playerctl previous"
+            # ", XF86AudioNext, exec, playerctl next"
+            # ", XF86AudioPause, exec, playerctl play-pause"
+            # ", XF86AudioPlay, exec, playerctl play-pause"
+            # ", XF86AudioPrev, exec, playerctl previous"
           ];
 
           general = {
-            gaps_in = 5;
-            gaps_out = 10;
+            # gaps_in = 5;
+            # gaps_out = 10;
             layout = "dwindle";
           };
 

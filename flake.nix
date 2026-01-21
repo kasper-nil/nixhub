@@ -20,6 +20,11 @@
     catppuccin.url = "github:catppuccin/nix";
 
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+
+    quickshell = {
+      url = "git+https://git.outfoxxed.me/quickshell/quickshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -85,7 +90,7 @@
 
           imports = [
             inputs.catppuccin.homeModules.catppuccin
-            inputs.nixcord.homeModules.nixcord
+            # inputs.nixcord.homeModules.nixcord
             inputs.spicetify-nix.homeManagerModules.spicetify
             inputs.plasma-manager.homeModules.plasma-manager
           ]

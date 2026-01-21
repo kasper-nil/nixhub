@@ -23,17 +23,5 @@
       description = "Workspace to use. Refer to the hyprland wiki.";
       example = "[ workspace=1, monitor:DP-2 ]";
     };
-
-    # hyprpanel = {
-    #   monitor = lib.mkOption {
-    #     type = with lib.types; listOf str;
-    #     default = [ ];
-    #     description = "List of monitors hyprpanel should be displayed on";
-    #     example = [
-    #       "DP-2"
-    #       "DP-3"
-    #     ];
-    #   };
-    # };
   };
 }
