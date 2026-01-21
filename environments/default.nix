@@ -2,10 +2,10 @@ let
   # List of available desktop environments
   environments = [
     "hyprland"
-    # "plasma6"
-    # "cosmic"
-    # "niri"
-    # "i3"
+    "plasma6"
+    "cosmic"
+    "niri"
+    "i3"
   ];
 
   # Generate module lists for each environment
