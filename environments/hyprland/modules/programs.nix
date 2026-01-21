@@ -24,11 +24,12 @@ in
         restartIfChanged = true; # Auto-restart dms.service when dms-shell changes
       };
 
-      enableSystemMonitoring = false; # System monitoring widgets (dgop)
       enableVPN = true; # VPN management widget
-      enableDynamicTheming = true; # Wallpaper-based theming (matugen)
+      enableDynamicTheming = false; # Wallpaper-based theming (matugen)
+      enableClipboardPaste = true; # System monitoring widgets (dgop)
+      enableCalendarEvents = true; # System monitoring widgets (dgop)
       enableAudioWavelength = true; # Audio visualizer (cava)
-      enableCalendarEvents = true; # Calendar integration (khal)
+      enableSystemMonitoring = true; # Audio visualizer (cava)
     };
   };
 }

@@ -5,6 +5,7 @@
 }:
 let
   cfg = config.nilhub.hyprland;
+  wallpaper = ../../../assets/wallpaper.png;
 in
 {
   wayland = lib.mkIf cfg.enable {
@@ -24,9 +25,10 @@ in
 
           workspace = cfg.workspace;
 
-          # exec-once = [
-          #   "dbus-update-activation-environment --systemd --all"
-          # ];
+          exec-once = [
+            # "dbus-update-activation-environment --systemd --all"
+            # "dms ipc call wallpaper set ${wallpaper}"
+          ];
 
           exec = [
             # "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
@@ -106,21 +108,13 @@ in
           ];
 
           general = {
-            # gaps_in = 5;
-            # gaps_out = 10;
+            gaps_in = 4;
+            gaps_out = 8;
             layout = "dwindle";
           };
 
-          plugin = {
-            hyprscrolling = {
-              column_width = 1;
-              fullscreen_on_one_column = false;
-              follow_focus = false;
-            };
-          };
-
           decoration = {
-            rounding = 10;
+            rounding = 8;
             rounding_power = 2;
 
             shadow = {

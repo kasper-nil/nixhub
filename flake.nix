@@ -90,7 +90,7 @@
 
           imports = [
             inputs.catppuccin.homeModules.catppuccin
-            # inputs.nixcord.homeModules.nixcord
+            inputs.nixcord.homeModules.nixcord
             inputs.spicetify-nix.homeManagerModules.spicetify
             inputs.plasma-manager.homeModules.plasma-manager
           ]
