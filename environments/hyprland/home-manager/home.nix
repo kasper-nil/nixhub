@@ -21,6 +21,7 @@ in
       nautilus
       file-roller
       gnome-calendar
+      gnome-text-editor
       networkmanagerapplet
     ];
 

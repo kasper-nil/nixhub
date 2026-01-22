@@ -12,6 +12,8 @@ in
   programs = lib.mkIf cfg.enable {
     hyprland = {
       enable = true;
+      withUWSM = false;
+      xwayland.enable = true;
     };
 
     dms-shell = {

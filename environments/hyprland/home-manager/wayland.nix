@@ -1,11 +1,12 @@
 {
+  self,
   config,
   lib,
   ...
 }:
 let
   cfg = config.nilhub.hyprland;
-  wallpaper = ../../../assets/wallpaper.png;
+  wallpaper = self + "/assets/wallpaper.png";
 in
 {
   wayland = lib.mkIf cfg.enable {
@@ -13,25 +14,21 @@ in
       hyprland = {
         enable = true;
 
-        plugins = [
-        ];
-
         systemd.variables = [ "all" ];
 
         settings = {
           "$mod" = "SUPER";
 
           monitor = cfg.monitor;
-
           workspace = cfg.workspace;
+
+          #   exec = [
+          #     "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
+          #   ];
 
           exec-once = [
             # "dbus-update-activation-environment --systemd --all"
-            # "dms ipc call wallpaper set ${wallpaper}"
-          ];
-
-          exec = [
-            # "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
+            "dms ipc call wallpaper set ${wallpaper}"
           ];
 
           bind = [
@@ -82,12 +79,6 @@ in
           ];
 
           bindel = [
-            # ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+"
-            # ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"
-            # ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-            # ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-            # ",XF86MonBrightnessUp, exec, ddcutil setvcp --noverify --skip-ddc-checks 10 + 10"
-            # ",XF86MonBrightnessDown, exec, ddcutil setvcp --noverify --skip-ddc-checks 10 - 10"
             ",XF86AudioRaiseVolume, exec, dms ipc call audio increment 1"
             ",XF86AudioLowerVolume, exec, dms ipc call audio decrement 1"
             ",XF86AudioMute, exec, dms ipc call audio mute"
@@ -98,13 +89,6 @@ in
             ", XF86AudioNext, exec, dms ipc call mpris next"
             ", XF86AudioPause, exec, dms ipc call mpris pause"
             ", XF86AudioPlay, exec, dms ipc call mpris play"
-          ];
-
-          bindl = [
-            # ", XF86AudioNext, exec, playerctl next"
-            # ", XF86AudioPause, exec, playerctl play-pause"
-            # ", XF86AudioPlay, exec, playerctl play-pause"
-            # ", XF86AudioPrev, exec, playerctl previous"
           ];
 
           general = {
