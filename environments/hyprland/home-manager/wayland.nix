@@ -28,7 +28,7 @@ in
 
           exec-once = [
             # "dbus-update-activation-environment --systemd --all"
-            "dms ipc call wallpaper set ${wallpaper}"
+            # "dms ipc call wallpaper set ${wallpaper}"
           ];
 
           bind = [
@@ -92,13 +92,13 @@ in
           ];
 
           general = {
-            gaps_in = 4;
-            gaps_out = 8;
+            gaps_in = 5;
+            gaps_out = 10;
             layout = "dwindle";
           };
 
           decoration = {
-            rounding = 8;
+            rounding = 10;
             rounding_power = 2;
 
             shadow = {
