@@ -22,15 +22,6 @@ in
           monitor = cfg.monitor;
           workspace = cfg.workspace;
 
-          #   exec = [
-          #     "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
-          #   ];
-
-          exec-once = [
-            # "dbus-update-activation-environment --systemd --all"
-            # "dms ipc call wallpaper set ${wallpaper}"
-          ];
-
           bind = [
             "$mod, D, exec, dms ipc call spotlight toggle"
             "$mod, L, exec, dms ipc call lock lock"
@@ -56,22 +47,18 @@ in
             "$mod, mouse_up, layoutmsg, move +col"
             "$mod, mouse_down, layoutmsg, move -col"
           ]
-          ++ (
-            # workspaces
-            # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
-            builtins.concatLists (
-              builtins.genList (
-                i:
-                let
-                  ws = i + 1;
-                in
-                [
-                  "$mod, code:1${toString i}, workspace, ${toString ws}"
-                  "$mod CTRL, code:1${toString i}, movetoworkspace, ${toString ws}"
-                ]
-              ) 9
-            )
-          );
+          ++ (builtins.concatLists (
+            builtins.genList (
+              i:
+              let
+                ws = i + 1;
+              in
+              [
+                "$mod, code:1${toString i}, workspace, ${toString ws}"
+                "$mod CTRL, code:1${toString i}, movetoworkspace, ${toString ws}"
+              ]
+            ) 9
+          ));
 
           bindm = [
             "$mod, mouse:272, movewindow"
