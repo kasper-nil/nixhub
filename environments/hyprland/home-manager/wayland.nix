@@ -12,7 +12,7 @@ in
   wayland = lib.mkIf cfg.enable {
     windowManager = {
       hyprland = {
-        enable = true;
+        enable = false;
 
         systemd.variables = [ "all" ];
 

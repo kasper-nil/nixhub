@@ -27,7 +27,13 @@ in
 
     pointerCursor = {
       enable = true;
-      hyprcursor.enable = true;
+      size = 46;
+
+      hyprcursor = {
+        enable = false;
+        size = 46;
+      };
+
       gtk.enable = true;
       x11.enable = true;
     };

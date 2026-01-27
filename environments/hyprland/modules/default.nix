@@ -1,10 +1,11 @@
 { ... }:
 {
   imports = [
+    ./nix.nix
     ./catppuccin.nix
     ./fonts.nix
-    ./programs.nix
     ./services.nix
     ./environment.nix
+    ./programs
   ];
 }

@@ -3,6 +3,7 @@
 }:
 {
   imports = [
+    ./systemd.nix
     ./catppuccin.nix
     ./gtk.nix
     ./xdg.nix

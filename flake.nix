@@ -21,6 +21,8 @@
 
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 
+    hyprland.url = "github:hyprwm/Hyprland";
+
     quickshell = {
       url = "git+https://git.outfoxxed.me/quickshell/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -80,6 +82,7 @@
 
           imports = [
             inputs.catppuccin.nixosModules.catppuccin
+            inputs.hyprland.nixosModules.default
           ]
           ++ environmentModules.nixosModules;
         };

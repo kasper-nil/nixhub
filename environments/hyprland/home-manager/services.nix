@@ -14,13 +14,13 @@ in
       enable = true;
     };
 
-    # hyprpaper = {
-    #   enable = true;
-    #   settings = {
-    #     ipc = "on";
-    #     preload = [ "${wallpaper}" ];
-    #     wallpaper = [ ",${wallpaper}" ];
-    #   };
-    # };
+    hyprpaper = {
+      enable = true;
+      settings = {
+        ipc = "on";
+        preload = [ "${wallpaper}" ];
+        wallpaper = [ ",${wallpaper}" ];
+      };
+    };
   };
 }
