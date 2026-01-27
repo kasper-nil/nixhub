@@ -8,9 +8,8 @@ let
 in
 {
   environment = lib.mkIf cfg.enable {
-
     sessionVariables = {
-      NIXOS_OZONE_WL = "1";
+      # NIXOS_OZONE_WL = "1";
     };
   };
 }

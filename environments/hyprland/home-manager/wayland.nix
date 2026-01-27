@@ -14,7 +14,10 @@ in
       hyprland = {
         enable = true;
 
-        systemd.variables = [ "all" ];
+        systemd = {
+          enable = false;
+          variables = [ "all" ];
+        };
 
         settings = {
           "$mod" = "SUPER";
@@ -22,11 +25,8 @@ in
           monitor = cfg.monitor;
           workspace = cfg.workspace;
 
-          exec = [
-            "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
-          ];
-
           exec-once = [
+            "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
             "dbus-update-activation-environment --systemd --all"
           ];
 

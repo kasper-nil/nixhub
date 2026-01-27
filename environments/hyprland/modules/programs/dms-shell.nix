@@ -12,11 +12,10 @@ in
   programs.dms-shell = lib.mkIf cfg.enable {
     enable = true;
 
-    quickshell.package = nilhubInputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell;
+    # quickshell.package = nilhubInputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell;
 
     systemd = {
       enable = true; # Systemd service for auto-start
-      restartIfChanged = true; # Auto-restart dms.service when dms-shell changes
     };
 
     enableVPN = true; # VPN management widget

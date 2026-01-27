@@ -12,7 +12,7 @@ in
 
     # Manage hyprland completely from the nixos modules by using the upstream version
     # TODO: ensure this does not cause any issues, fallback to the wayland display manager implementation
-    withUWSM = false;
+    withUWSM = true;
 
     xwayland.enable = true;
   };

@@ -27,11 +27,11 @@ in
 
     pointerCursor = {
       enable = true;
-      size = 46;
+      size = 36;
 
       hyprcursor = {
-        enable = false;
-        size = 46;
+        enable = true;
+        size = 36;
       };
 
       gtk.enable = true;

@@ -1,8 +1,6 @@
 {
   config,
   lib,
-  nilhubInputs,
-  pkgs,
   ...
 }:
 let
@@ -13,10 +11,9 @@ in
     displayManager = {
       enable = true;
 
-      dms-greeter = {
+      sddm = {
         enable = true;
-        compositor.name = "hyprland";
-        quickshell.package = nilhubInputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell;
+        wayland.enable = true;
       };
     };
   };
