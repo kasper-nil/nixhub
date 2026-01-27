@@ -12,7 +12,7 @@ in
   wayland = lib.mkIf cfg.enable {
     windowManager = {
       hyprland = {
-        enable = false;
+        enable = true;
 
         systemd.variables = [ "all" ];
 
@@ -21,6 +21,14 @@ in
 
           monitor = cfg.monitor;
           workspace = cfg.workspace;
+
+          exec = [
+            "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
+          ];
+
+          exec-once = [
+            "dbus-update-activation-environment --systemd --all"
+          ];
 
           bind = [
             "$mod, D, exec, dms ipc call spotlight toggle"

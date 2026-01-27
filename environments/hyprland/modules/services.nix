@@ -1,6 +1,8 @@
 {
   config,
   lib,
+  nilhubInputs,
+  pkgs,
   ...
 }:
 let
@@ -14,13 +16,8 @@ in
       dms-greeter = {
         enable = true;
         compositor.name = "hyprland";
-        configHome = "/home/kasper";
-        # quickshell.package = nilhubInputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell;
+        quickshell.package = nilhubInputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell;
       };
-    };
-
-    blueman = {
-      enable = true;
     };
   };
 }
