@@ -4,6 +4,7 @@
 {
   imports = [
     ./systemd.nix
+    ./xdg
     ./catppuccin.nix
     ./gtk.nix
     ./xdg.nix
