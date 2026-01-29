@@ -1,12 +1,10 @@
 {
-  self,
   config,
   lib,
   ...
 }:
 let
   cfg = config.nilhub.hyprland;
-  wallpaper = self + "/assets/wallpaper.png";
 in
 {
   wayland = lib.mkIf cfg.enable {
@@ -26,8 +24,8 @@ in
           workspace = cfg.workspace;
 
           exec-once = [
-            "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
             "dbus-update-activation-environment --systemd --all"
+            "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
           ];
 
           bind = [

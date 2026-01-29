@@ -17,9 +17,13 @@ in
     hyprpaper = {
       enable = true;
       settings = {
-        ipc = "on";
-        preload = [ "${wallpaper}" ];
-        wallpaper = [ ",${wallpaper}" ];
+        preload = [
+          "${wallpaper}"
+          "${wallpaper}"
+        ];
+        wallpaper = [
+          ",${wallpaper}"
+        ];
       };
     };
   };

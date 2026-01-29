@@ -10,11 +10,6 @@ let
   wallpaper = self + "/assets/wallpaper.png";
 
   settings = {
-    screenPreferences = {
-      wallpaper = [
-        wallpaper
-      ];
-    };
   };
 
   baseSettings = builtins.fromJSON (builtins.readFile (dotfiles + "/settings.json"));
