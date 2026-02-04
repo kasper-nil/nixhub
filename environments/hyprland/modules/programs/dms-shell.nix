@@ -16,6 +16,7 @@ in
 
     systemd = {
       enable = true; # Systemd service for auto-start
+      target = "graphical-session.target"; # Try avoid race issues under uswm managed hyprland
     };
 
     enableVPN = true; # VPN management widget

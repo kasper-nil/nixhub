@@ -15,7 +15,6 @@ in
       vlc
       libreoffice
       gearlever
-      bottles
       pavucontrol
       hyprpicker
       nautilus
@@ -23,6 +22,10 @@ in
       gnome-calendar
       gnome-text-editor
       networkmanagerapplet
+      hyprpicker
+      hyprshot
+      wl-clipboard
+      blueman
     ];
 
     pointerCursor = {

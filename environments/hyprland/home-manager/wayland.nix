@@ -35,7 +35,7 @@ in
             "$mod, T, exec, alacritty"
             "$mod, B, exec, brave"
             "$mod SHIFT, s, exec, hyprshot -m region --clipboard-only"
-            "$mod SHIFT, c, exec, hyprpicker"
+            "$mod SHIFT, c, exec, hyprpicker --format=hex --autocopy"
 
             "$mod, Q, killactive,"
             "$mod, V, togglefloating,"
