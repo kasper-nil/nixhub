@@ -57,11 +57,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1781063088,
-        "narHash": "sha256-I+lXR3YLbEcCZsIZILl5rc69sn95yWsN6p/ObUiuUwE=",
+        "lastModified": 1781129616,
+        "narHash": "sha256-Hl0Pz/QIKpePSU7SdK3BMe5VNmUhFvfWyg57GyawxzE=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "c30f177760b872c2697835f1275758d36a667af4",
+        "rev": "7dbd305f8b81050f223f00bcfbc8a6b74e048806",
         "type": "github"
       },
       "original": {
@@ -79,11 +79,11 @@
         "nixpkgs-nixcord": "nixpkgs-nixcord"
       },
       "locked": {
-        "lastModified": 1781054226,
-        "narHash": "sha256-JnqeuoUTMKmKaOacWqCUg+GKO0lT3V1q1omairjIIEc=",
+        "lastModified": 1781140712,
+        "narHash": "sha256-POh2b47dEIcHDp0/5T/1iYzjbCX9L7mJHLbt6+kvZ5w=",
         "owner": "kaylorben",
         "repo": "nixcord",
-        "rev": "3b324e2d389af0a9742814c7f89bc1c6c70c4813",
+        "rev": "0dbf3dcf5f97c0ac5105a3e99b203f2f6bfc24d0",
         "type": "github"
       },
       "original": {
@@ -170,11 +170,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1779560665,
-        "narHash": "sha256-NpH8iEQ5JHv/BtUuzTEXUMDxPLetCDzIv4OxL8H7Kps=",
-        "rev": "64c08a7ca051951c8eae34e3e3cb1e202fe36786",
+        "lastModified": 1780749050,
+        "narHash": "sha256-G5B1h4sOH4DN/RZ85xYi6zPm2MHdOrNMeUmMslZ28Qs=",
+        "rev": "a799d3e3886da994fa307f817a6bc705ae538eeb",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.05pre1004030.64c08a7ca051/nixexprs.tar.xz"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1011622.a799d3e3886d/nixexprs.tar.xz"
       },
       "original": {
         "type": "tarball",
@@ -241,11 +241,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1780857688,
-        "narHash": "sha256-e4E6M6erJIus5Cm/A4faaaTuUfof1uvcviAPSh7tmLU=",
+        "lastModified": 1781101834,
+        "narHash": "sha256-gNVY6SYglFe37FpD+NnOjTipsqvVMM2vh/uc22KDEsA=",
         "owner": "Gerg-L",
         "repo": "spicetify-nix",
-        "rev": "aad629e8261f219b0a5b3a2189b09d65216a0983",
+        "rev": "0243dd6707c969fc8440216c811b3f2e4a4cceb7",
         "type": "github"
       },
       "original": {
